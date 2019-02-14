@@ -1,0 +1,91 @@
+.landing-nav{
+    display: flex;
+    max-height: 64px;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.landing-nav h4{
+    color: white
+}
+
+.flickr-logo{
+    position: relative;
+    width: 10vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items:center; 
+    float: left;
+}
+
+.flickr-logo h1{
+    width: 100%;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+    font-weight: 600;
+    color: white;
+}
+
+.landing-search{
+    position: relative;
+    width: 70vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items:center; 
+}
+.landing-search input{
+    background-color: rgba(0, 0, 0, 0.1);
+    width: 68vw;
+    height: 3.5vh;
+}
+
+#landingpage{
+    height: 100vh;
+    width: 100vw;
+    background-image:url(https://www.vactualpapers.com/wallpapers/beautiful-landscape-high-resolution-4k-wallpaper-35/download/3840x2160.jpg);
+    background-position:center;
+    background-size: cover;
+    color: white;
+}
+
+.landing-text{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+    align-content: stretch;
+    max-width: 640px;
+    margin: 0 auto;
+    margin-top: 20vh;
+}
+
+.landing-footer{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    bottom: 0;
+    height: 52px;
+}
+
+.foot-nav{
+    width: 55vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+    color: gray;
+    font-size: 14px;
+    margin: auto;
+    justify-content: space-between;
+}
+
+p:hover{
+    color: #cccccc;
+    transition: .2s;
+}
