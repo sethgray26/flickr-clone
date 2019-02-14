@@ -4,6 +4,8 @@ import InputBase from '@material-ui/core/InputBase'
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import { withStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
+import Button from '@material-ui/core/Button'
+import flickrLogo from '../../photos/flickrLogo.svg'
 import './LandingPage.css'
 
 
@@ -48,7 +50,6 @@ const styles = theme => ({
     }
 });
 
-
 class LandingPage extends Component {
     constructor() {
         super()
@@ -57,13 +58,12 @@ class LandingPage extends Component {
         }
     }
 
-
     render() {
         return (
             <div id='landingpage' >
                 <div className='landing-nav'>
                     <div className='flickr-logo' >
-                        <Link to='HomePage'> <h1> flickr </h1>  </Link>
+                        <img src={flickrLogo} alt=''></img>
                     </div>
 
                     <div className='landing-search'>
@@ -71,15 +71,17 @@ class LandingPage extends Component {
                         <InputBase />
                     </div>
 
-                    <Link to='Signin'> <h4> Log In </h4> </Link>
-                    <Link to='Signup'> <button> Sign Up </button> </Link>
+                    <Link to='Signin'> <h4 className='login-link'> Log In </h4> </Link>
+                    <Button className='nav-signup-btn' variant='contained' component={Link} to='/Signup'
+                        style={{ marginTop: 15, marginRight: 24, backgroundColor: 'white' }}
+                    > Sign up </Button>
                 </div>
                 <div className='landing-text'>
-                    <h1> Find Your Inspiration.</h1>
-                    <h2> Join the Flickr community, home to tens of billions of </h2>
-                    <h2>photos and 2 million groups. </h2>
-                    <button> Sign Up </button>
+                    <h1 className='landing-top-text'> Find Your Inspiration.</h1>
+                    <h2 className='landing-mid-text'> Join the Flickr community, home to tens of billions of </h2>
+                    <h2 className='landing-bottom-text'>photos and 2 million groups. </h2>
                 </div>
+                <Button  variant='contained' component={Link} to='/Signup' style={{ marginLeft: '45vw', marginTop: '2vh', height: "4rem", width: '12.3rem', fontSize: 18, backgroundColor: 'white' }}> Sign Up </Button>
                 <div className='landing-footer'>
                     <div className='foot-nav'>
                         <p> About </p>
