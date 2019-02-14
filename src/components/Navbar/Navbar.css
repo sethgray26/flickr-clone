@@ -1,0 +1,11 @@
+.nav-black-bar{
+    display: flex;
+    height: 5vh;
+    background-color:  #212124;
+}
+
+.home-image-link{
+    height: 2.5vh;
+    margin-top: 1.1vh;
+    margin-left: 3vw;
+}

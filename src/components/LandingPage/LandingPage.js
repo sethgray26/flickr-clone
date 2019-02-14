@@ -63,7 +63,9 @@ class LandingPage extends Component {
             <div id='landingpage' >
                 <div className='landing-nav'>
                     <div className='flickr-logo' >
-                        <img src={flickrLogo} alt=''></img>
+                        {/* <Link to='/HomePage'> */}
+                            <img src={flickrLogo} alt=''></img>
+                        {/* </Link> */}
                     </div>
 
                     <div className='landing-search'>
@@ -81,7 +83,7 @@ class LandingPage extends Component {
                     <h2 className='landing-mid-text'> Join the Flickr community, home to tens of billions of </h2>
                     <h2 className='landing-bottom-text'>photos and 2 million groups. </h2>
                 </div>
-                <Button  variant='contained' component={Link} to='/Signup' style={{ marginLeft: '45vw', marginTop: '2vh', height: "4rem", width: '12.3rem', fontSize: 18, backgroundColor: 'white' }}> Sign Up </Button>
+                <Button variant='contained' component={Link} to='/Signup' style={{ marginLeft: '45vw', marginTop: '2vh', height: "4rem", width: '12.3rem', fontSize: 18, backgroundColor: 'white' }}> Sign Up </Button>
                 <div className='landing-footer'>
                     <div className='foot-nav'>
                         <p> About </p>
