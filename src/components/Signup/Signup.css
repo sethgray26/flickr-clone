@@ -6,24 +6,58 @@
 
 .registration-box{
     position: absolute;
-    height: 550px;
-    width: 360px;
+    height: 56.8vh;
+    width: 20vw;
     background-color: white;
-    margin-top: 150px;
-    margin-right: 335px;
-    margin-left: 750px;
+    margin-top: 16vh;
+    margin-right: 35vw;
+    margin-left: 39vw;
     box-shadow:0px 1.5px 10px 1px rgba(0,0,0,0.19);
+    justify-content: center;
 }
+
+.registration-box h3{
+    font-weight: 500;
+    margin: 0;
+    padding: 10;
+}
+
+.signup-top{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 4vh;
+    margin-left: 7.5vw; 
+}
+
+.signup-top p{
+    margin-left: -2.8vw;
+}
+
 form{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: stretch;
-	align-content: stretch;
+    align-content: stretch;
 }
 
 .MuiFormControl-root-5{
     width: 150px;
 }
 
+.agree-to-terms{
+    font-weight: 500;
+    color: gray;
+}
+
+.already-account{
+    margin-top: -1vh;
+    margin-left: 4vw;
+    font-weight: 500
+}
+
+.link-to-signin{
+    color: blue
+}

@@ -1,0 +1,85 @@
+.black-bar-top{
+    display: flex;
+    height: 6.4vh;
+    background-color:  #212124;
+}
+
+.flickrLogo{
+    height: 3.2vh;
+    padding: 1vh;
+    margin-top: .6vh;
+    margin-left: 9.5vw;
+}
+
+.signin-page{
+    height: 100vh;
+    width: 100vw;
+    background-image:url(https://identity.flickr.com/img/bg-full-res.133766e4.jpg);
+    background-position:center;
+    background-size: cover;
+    color: white;
+}
+
+.login-card{
+    position: relative;
+    display: block;
+    background-color: white;
+    color: black;
+    border-radius: .25rem;
+    height: 20rem;
+    width: 17rem;
+    padding: 1.5rem;
+    margin: auto;
+    margin-top: 20.3vh;
+    font-family: Proxima Nova,Helvetica,sans-serif;
+    font-size: 16px;
+}
+
+.two-circles{
+    display: flex;
+    /* margin-left: 16vw; */
+    /* margin-top: .8vh; */
+}
+.blue-circle{
+    background-color: #005FDE;
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+    display: inline-block;
+    margin-right: 2px 
+}
+.pink-circle{
+    background-color: #FF0084;
+    height: 10px;
+    width: 10px;
+    border-radius: 100%;
+    display: inline-block;
+}
+.login-card h3{
+    font-weight: 100;
+}
+.login-card h4{
+    font-weight: lighter;
+}
+.login-top-text{
+    margin-left: .5vw;
+}
+.login-middle-text{
+    margin-top: .7vh;
+    margin-left: -.5vw
+}
+.login-bottom-text{
+    margin-left: 8.5vw;
+    margin-top: -1.9vh;
+}
+#outline-email-input{
+    margin-top: -1vh;
+}
+.signin-continue-btn{
+    margin-top: 15vh;
+}
+
+.login-signup-link{
+    font-size: 13px;
+    margin-left: 5vw; 
+}
