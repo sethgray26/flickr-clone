@@ -30,3 +30,5 @@ massive(CONNECTION_STRING).then((db) => {
 app.post('/api/register', controller.register)
 app.post('/api/login', controller.login)
 app.get('/api/profile', controller.userData)
+
+app.post('/api/uploadPicture', controller.uploadPicture)

@@ -18,7 +18,7 @@ export default class PrimarySearchAppBar extends Component {
       <div>
         < Navbar />
         <div className='home-display-card'>
-    
+      
         </div>
       </div>
     );

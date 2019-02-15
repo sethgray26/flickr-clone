@@ -20,7 +20,7 @@ module.exports = {
         })
     },
     login: async (req, res) => {
-        const { first_name, last_name, email, password } = req.body; 
+        const { first_name, last_name, email, password } = req.body;
         const db = req.app.get('db');
         const userArr = await db.find_user({ email: email })
         if (!userArr[0]) {
@@ -37,6 +37,13 @@ module.exports = {
                     'https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/820/s200/dev-mountain-logo.png'
             }, loggedIn: true
         })
+    },
+    uploadPicture: async (req, res) => {
+        const { picture_name, picture_pic, user_id } = req.body;
+        const db = req.app.get('db')
+        const addPicture = await db.upload_picture({ user_id: user_id, picture_name: picture_name, picture_pic: picture_pic })
+        console.log(addPicture)
+        res.status(200).send(addPicture)
     },
     userData: (req, res) => {
         if (req.session.user) {

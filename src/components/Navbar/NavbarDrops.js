@@ -17,7 +17,7 @@ export default class NavbarDrops extends Component {
                 <div className="you-dropdown">
                     <button className="you-drop-btn"> You </button>
                     <div className="you-drop-content">
-                        <a href="#"> About </a>
+                        <Link to='/Profile'> About </Link>
                         <a href="#"> Photostream </a>
                         <a href="#"> Albums </a>
                         <a href='#'> Faves </a>
