@@ -1,0 +1,7 @@
+.home-display-card{
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+    width: 12vw;
+    background-color: bisque
+}
