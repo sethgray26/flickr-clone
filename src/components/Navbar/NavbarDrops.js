@@ -32,7 +32,7 @@ export default class NavbarDrops extends Component {
                 </div>
 
                 <div className='explore-dropdown'>
-                    <button className='explore-drop-btn'> Explore </button>
+                    <Link to='/Explore'>  <button className='explore-drop-btn'> Explore </button> </Link>
                     <div className='explore-drop-content'>
                         <a href="#"> Recent Photos </a>
                         <a href='#'> Trending </a>

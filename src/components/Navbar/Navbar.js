@@ -102,7 +102,7 @@ class Navbar extends Component {
                             />
                         </div>
                     </div>
-                    <CloudUploadIcon className={classes.rightIcon} style={{ marginLeft: 205, color: 'white', marginTop: 10, height: 30, width: 50, cursor: 'pointer' }} />
+                    <Link to='/upload'> <CloudUploadIcon className={classes.rightIcon} style={{ marginLeft: 205, color: 'white', marginTop: 10, height: 30, width: 50, cursor: 'pointer' }} /> </Link>
                     <NotificationsIcon className={classes.rightIcon} style={{ marginLeft: 0, color: 'white', marginTop: 10, height: 30, width: 50, cursor: 'pointer' }} />
                     <Avatar alt="User Avatar" src={devmtnLogo} style={{ marginTop: 7, marginLeft: 5, height: 35, width: 35, cursor: 'pointer' }} />
                 </div>

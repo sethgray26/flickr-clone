@@ -7,6 +7,7 @@ import Signup from './components/Signup/Signup'
 import People from './components/People/People'
 import Profile from './components/Profile/Profile'
 import Explore from './components/Explore/Explore'
+import Upload from './components/Upload/Upload'
 
 export default (
     <Switch>
@@ -17,5 +18,6 @@ export default (
         <Route path='/people' component={People} />
         <Route path='/profile' component={Profile} />
         <Route path='/explore' component={Explore} />
+        <Route path='/upload' component={Upload} />
     </Switch>
 )

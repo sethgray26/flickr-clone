@@ -19,6 +19,7 @@ module.exports = {
             }, loggedIn: true
         })
     },
+
     login: async (req, res) => {
         const { first_name, last_name, email, password } = req.body;
         const db = req.app.get('db');
@@ -38,13 +39,35 @@ module.exports = {
             }, loggedIn: true
         })
     },
-    uploadPicture: async (req, res) => {
-        const { picture_name, picture_pic, user_id } = req.body;
+
+    updateBio: async (req, res) => {
+        const { updateBio } = req.body
         const db = req.app.get('db')
-        const addPicture = await db.upload_picture({ user_id: user_id, picture_name: picture_name, picture_pic: picture_pic })
+        try {
+            const bioUpdate = await db.update_bio({ user_bio: updateBio, user_id: req.session.user.id })
+            req.session.user.user_bio = bioUpdate[0].user_bio
+            res.status(200).send(req.session.user.user_bio)
+        }
+        catch (err) {
+            console.log(err)
+        }
+    },
+
+    getBio: async (req, res) => {
+        const db = req.app.get('db')
+        const userBio = await db.get_bio({ user_id: req.session.user.id })
+        res.status(200).send(userBio)
+    },
+
+    uploadPicture: async (req, res) => {
+        const { picture_name, picture_pic } = req.body;
+        const id = req.session.user.id
+        const db = req.app.get('db')
+        const addPicture = await db.upload_picture({ user_id: id, picture_name: picture_name, picture_pic: picture_pic })
         console.log(addPicture)
         res.status(200).send(addPicture)
     },
+
     userData: (req, res) => {
         if (req.session.user) {
             res.status(200).send(req.session.user)
@@ -52,4 +75,4 @@ module.exports = {
             res.status(401).send('Please Log In.')
         )
     }
-}
+} 
