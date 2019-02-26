@@ -17,9 +17,20 @@ export default class PrimarySearchAppBar extends Component {
   render() {
 
     return (
-      <div>
+      <div className='homepage-back-color'>
         < Navbar />
-        <div className='home-display-card'>
+        <div className='sub-nav-bar'>
+          wassup
+        </div>
+        <div className='home-card-holder'>
+          <div className='home-display-card'>
+          </div>
+          <div className='home-display-card'>
+          </div>
+          <div className='home-display-card'>
+          </div>
+          <div className='home-display-card'>
+          </div>
         </div>
       </div>
     );

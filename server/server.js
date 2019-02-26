@@ -3,7 +3,7 @@ const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 const controller = require('./controller')
-
+const s3Controller = require('./amazonS3')
 
 const { SERVER_PORT, CONNECTION_STRING, SECRET, NODE_ENV } = process.env
 
@@ -28,9 +28,6 @@ app.use(async (req, res, next) => {
 
 massive(CONNECTION_STRING).then((db) => {
     app.set('db', db)
-    app.listen(SERVER_PORT, () => {
-        console.log(`${SERVER_PORT} Ducks Marching On Rome.`)
-    })
 })
 
 
@@ -39,6 +36,10 @@ app.post('/api/login', controller.login)
 app.get('/api/profile', controller.userData)
 
 app.post('/api/upload', controller.uploadPicture)
+app.post('/api/s3-upload', s3Controller.s3Upload)
 
 app.put('/api/bio', controller.updateBio)
 app.get('/api/bio', controller.getBio)
+
+app.listen(SERVER_PORT || 4050);
+console.log(`${SERVER_PORT} Ducks Marching On Rome`);
