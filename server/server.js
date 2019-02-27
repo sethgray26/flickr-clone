@@ -3,9 +3,10 @@ const express = require('express')
 const massive = require('massive')
 const session = require('express-session')
 const controller = require('./controller')
-const s3Controller = require('./amazonS3')
+// const s3Controller = require('./amazonS3')
 
-const { SERVER_PORT, CONNECTION_STRING, SECRET, NODE_ENV } = process.env
+
+const { SERVER_PORT, CONNECTION_STRING, SECRET, NODE_ENV, S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY } = process.env
 
 const app = express()
 
@@ -36,10 +37,12 @@ app.post('/api/login', controller.login)
 app.get('/api/profile', controller.userData)
 
 app.post('/api/upload', controller.uploadPicture)
-app.post('/api/s3-upload', s3Controller.s3Upload)
+app.get('/api/upload', controller.s3Upload)
+// app.post('/api/s3-upload', s3Controller.s3Upload)
 
 app.put('/api/bio', controller.updateBio)
 app.get('/api/bio', controller.getBio)
+
 
 app.listen(SERVER_PORT || 4050);
 console.log(`${SERVER_PORT} Ducks Marching On Rome`);

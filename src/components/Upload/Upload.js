@@ -1,163 +1,100 @@
-// import React, { Component } from 'react'
-// import axios from 'axios'
-
-
-// export default class Upload extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       picture_pic: {},
-//       imagePreviewUrl: '',
-//       image4Upload: '',
-//       picture_name: ''
-//     };
-//     this.handleImageChange = this.handleImageChange.bind(this);
-//     this.handleImgUpload = this.handleImgUpload.bind(this);
-//   }
-
-
-//   handleImgUpload(e) {
-//     const { picture_name, picture_pic } = this.state
-//     axios.post(`/api/upload`, { uploadPicture: this.state.picture_pic, picture_name: picture_name, picture_pic: picture_pic }).then(res => {
-//       this.setState({ picture_pic: res.data })
-//       console.log(picture_pic)
-//     })
-//     e.preventDefault()
-//   }
-
-
-//   handleImageChange(e) {
-//     e.preventDefault();
-
-//     let reader = new FileReader();
-//     let picture_pic = e.target.files[0];
-//     console.log(picture_pic)
-//     reader.onloadend = () => {
-//       this.setState({
-//         picture_pic: picture_pic,
-//         imagePreviewUrl: reader.result
-//       });
-//     }
-//     reader.readAsDataURL(picture_pic)
-//   }
-
-//   render() {
-//     let { imagePreviewUrl } = this.state;
-//     let imagePreview = null;
-//     if (imagePreviewUrl) {
-//       imagePreview = (<img src={imagePreviewUrl} />);
-//     }
-//     return (
-//       <div>
-//         <form onSubmit={this.handleImgUpload}>
-//           <input type="file" onChange={this.handleImageChange} />
-//           <input onChange={(e) => this.setState({ picture_name: e.target.value })} />
-//           <button className='uploadImage' type="submit" onClick={this.handleImgUpload}>Upload Image</button>
-
-//         </form>
-//         {imagePreview}
-//       </div>
-//     )
-//   }
-// }
-
-// import React, { Component } from 'react';
-// import axios from 'axios';
-
-// class S3FileUpload extends Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       file: null,
-//       imagePreviewUrl: '',
-//       picture_pic: null,
-//       picture_name: ''
-//     };
-//   }
-
-
-
-//   submitFile = (event) => {
-//     event.preventDefault();
-//     const formData = new FormData();
-//     formData.append('file', this.state.file[0]);
-//     axios.post(`/api/s3-upload`, formData, {
-//       headers: {
-//         'Content-Type': 'multiparty/form-data'
-//       }
-//     }).then(res => {
-//       console.log('hit')
-// this.setState({ picture_pic: 'https://s3-us-west-1.amazonaws.com/sethgray26-s3/' + res.data.service.config.params.Key })
-//     }).catch(error => {
-//       // handle your error
-//     });
-//   }
-
-//   handleFileUpload = (event) => {
-//     this.setState({ file: event.target.files });
-//   }
-
-
-//   render() {
-//     // let { imagePreviewUrl } = this.state;
-//     // if (imagePreviewUrl) {
-//     //   imagePreview = (<img src={imagePreviewUrl} />);
-//     // }
-//     console.log(this.state)
-//     return (
-//       <div>
-
-//         <form onSubmit={this.submitFile}>
-//           <input label='upload file' type='file' onChange={this.handleFileUpload} />
-//           <button type='submit'>Send</button>
-//         </form>
-//         <img src={this.state.picture_pic} alt=' :)' />
-//       </div>
-//     );
-//   }
-// }
-
-// export default S3FileUpload;
-
-
-
 import React, { Component } from 'react';
+import './Upload.css';
 import axios from 'axios';
+import { v4 as randomString } from 'uuid';
+import Dropzone from 'react-dropzone';
+import { GridLoader } from 'react-spinners';
 
-export default class Upload extends Component {
+class Upload extends Component {
   constructor() {
     super();
     this.state = {
-      file: null
+      isUploading: false,
+      url: 'http://via.placeholder.com/450x450',
     };
   }
 
-  submitFile = (event) => {
-    event.preventDefault();
-    const formData = new FormData();
-    formData.append('file', this.state.file[0]);
-    axios.post(`/test-upload`, formData, {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    }).then(res => {
-      this.setState({ picture_pic: 'https://s3-us-west-1.amazonaws.com/sethgray26-s3/' + res.data.service.config.params.Key })
+  onDrop = ([file]) => {
+    this.setState({ isUploading: true });
+    // We are creating a file name that consists of a random string, and the name of the file that was just uploaded with the spaces removed and hyphens inserted instead. This is done using the .replace function with a specific regular expression. This will ensure that each file uploaded has a unique name which will prevent files from overwriting other files due to duplicate names.
+    const fileName = `${randomString()}-${file.name.replace(/\s/g, '-')}`;
 
-    }).catch(error => {
-      // handle your error
+    // We will now send a request to our server to get a "signed url" from Amazon. We are essentially letting AWS know that we are going to upload a file soon. We are only sending the file-name and file-type as strings. We are not sending the file itself at this point.
+    axios.get('/api/upload', {
+      params: { 'file-name': fileName, 'file-type': file.type, },
+    }).then(response => {
+      const { signedRequest, url } = response.data;
+      this.uploadFile(file, signedRequest, url);
+    }).catch(err => {
+      console.log(err);
     });
-  }
+  };
 
-  handleFileUpload = (event) => {
-    this.setState({ file: event.target.files });
-  }
+  uploadFile = (file, signedRequest, url) => {
+    const options = {
+      headers: {
+        'Content-Type': file.type,
+      },
+    };
+
+    axios.put(signedRequest, file, options).then(response => {
+      this.setState({ isUploading: false, url });
+      axios.post(`/api/upload`, { url })
+    })
+      .catch(err => {
+        this.setState({
+          isUploading: false,
+        });
+        if (err.response.status === 403) {
+          alert(
+            `Your request for a signed URL failed with a status 403. Double check the CORS configuration and bucket policy in the README. You also will want to double check your AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY in your .env and ensure that they are the same as the ones that you created in the IAM dashboard. You may need to generate new keys\n${
+            err.stack
+            }`
+          );
+        } else {
+          alert(`ERROR: ${err.status}\n ${err.stack}`);
+        }
+      });
+  };
 
   render() {
+    const { url, isUploading } = this.state;
     return (
-      <form onSubmit={this.submitFile}>
-        <input label='upload file' type='file' onChange={this.handleFileUpload} />
-        <button type='submit'>Send</button>
-      </form>
+      <div className="Upload">
+        <h1>Upload</h1>
+        <h1>{url}</h1>
+        <img src={url} alt="" width="450px" />
+
+        <Dropzone
+          onDropAccepted={this.onDrop}
+          style={{
+            position: 'relative',
+            width: 200,
+            height: 200,
+            borderWidth: 7,
+            marginTop: 100,
+            borderColor: 'rgb(102, 102, 102)',
+            borderStyle: 'dashed',
+            borderRadius: 5,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontSize: 28,
+          }}
+          accept="image/*"
+          multiple={false}
+        >
+          {() => {
+            return (
+              <div>
+                {isUploading ? <GridLoader /> : <p>Drop File or Click Here</p>}
+              </div>
+            )
+          }}
+        </Dropzone>
+      </div>
     );
   }
 }
+
+export default Upload;
