@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Modal from '@material-ui/core/Modal';
-import Button from '@material-ui/core/Button';
 import axios from 'axios'
 import './MediaGallery.scss'
 
@@ -48,7 +47,7 @@ export default class MediaGallery extends Component {
     }
 
     render() {
-        const { items, images, selectedImage } = this.state;
+        const { selectedImage } = this.state;
         return (
             <div className="media-gallery">
                 <div className="media-gallery-thumbnails" onClick={this.handleOpen}>
@@ -56,7 +55,7 @@ export default class MediaGallery extends Component {
                         this.state.items.map((item, index) =>
                             <div key={index}
                                 onClick={this.selectImage.bind(this, this.imageURL(item))}>
-                                <img className="media-gallery-thumbnails-img" src={this.imageURL(item)} />
+                                <img className="media-gallery-thumbnails-img" src={this.imageURL(item)} alt='' />
                             </div>)
                         : <div>Loading...</div>
                     }
@@ -67,7 +66,7 @@ export default class MediaGallery extends Component {
                         open={this.state.open}
                         onClose={this.handleClose}>
                         <div className='modal-img-size'>
-                            <img className="media-gallery-main-img" src={selectedImage} />
+                            <img className="media-gallery-main-img" src={selectedImage} alt='' />
                         </div>
                     </Modal>
                 </div>

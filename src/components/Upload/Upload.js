@@ -4,6 +4,7 @@ import axios from 'axios';
 import { v4 as randomString } from 'uuid';
 import Dropzone from 'react-dropzone';
 import { GridLoader } from 'react-spinners';
+import Navbar from '../../components/Navbar/Navbar'
 
 class Upload extends Component {
   constructor() {
@@ -11,6 +12,7 @@ class Upload extends Component {
     this.state = {
       isUploading: false,
       url: 'http://via.placeholder.com/450x450',
+      picture_name: ''
     };
   }
 
@@ -36,62 +38,58 @@ class Upload extends Component {
         'Content-Type': file.type,
       },
     };
-
     axios.put(signedRequest, file, options).then(response => {
       this.setState({ isUploading: false, url });
-      axios.post(`/api/upload`, { url })
+      const { picture_name } = this.state
+      axios.post(`/api/upload`, { url, picture_name })
+
     })
-      .catch(err => {
-        this.setState({
-          isUploading: false,
-        });
-        if (err.response.status === 403) {
-          alert(
-            `Your request for a signed URL failed with a status 403. Double check the CORS configuration and bucket policy in the README. You also will want to double check your AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY in your .env and ensure that they are the same as the ones that you created in the IAM dashboard. You may need to generate new keys\n${
-            err.stack
-            }`
-          );
-        } else {
-          alert(`ERROR: ${err.status}\n ${err.stack}`);
-        }
-      });
   };
+
+  handleName(newName) {
+    this.setState({ picture_name: newName })
+  }
 
   render() {
     const { url, isUploading } = this.state;
     return (
-      <div className="Upload">
-        <h1>Upload</h1>
-        <h1>{url}</h1>
-        <img src={url} alt="" width="450px" />
+      <div>
 
-        <Dropzone
-          onDropAccepted={this.onDrop}
-          style={{
-            position: 'relative',
-            width: 200,
-            height: 200,
-            borderWidth: 7,
-            marginTop: 100,
-            borderColor: 'rgb(102, 102, 102)',
-            borderStyle: 'dashed',
-            borderRadius: 5,
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            fontSize: 28,
-          }}
-          accept="image/*"
-          multiple={false}
-        >
-          {() => {
-            return (
-              <div>
-                {isUploading ? <GridLoader /> : <p>Drop File or Click Here</p>}
-              </div>
-            )
-          }}
-        </Dropzone>
+        <Navbar />
+        <div className="Upload">
+          <h1>Upload</h1>
+          <h1>{url}</h1>
+          <img src={url} alt="" width="450px" />
+
+          <Dropzone
+            onDropAccepted={this.onDrop}
+            style={{
+              position: 'relative',
+              width: 200,
+              height: 200,
+              borderWidth: 7,
+              marginTop: 100,
+              borderColor: 'rgb(102, 102, 102)',
+              borderStyle: 'dashed',
+              borderRadius: 5,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              fontSize: 28,
+            }}
+            accept="image/*"
+            multiple={false}
+          >
+            {() => {
+              return (
+                <div>
+                  {isUploading ? <GridLoader /> : <p>Drop File or Click Here</p>}
+                </div>
+              )
+            }}
+          </Dropzone>
+          <input onChange={(e) => { this.handleName(e.target.value) }} />
+        </div>
       </div>
     );
   }

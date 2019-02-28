@@ -62,6 +62,12 @@ module.exports = {
         res.status(200).send(userBio)
     },
 
+    getUserPictures: async (req, res) => {
+        const db = req.app.get('db');
+        const userPictures = await db.get_user_pictures({ user_id: req.session.user.id })
+        res.status(200).send(userPictures)
+    },
+
     uploadPicture: async (req, res) => {
         const { picture_name, url } = req.body;
         const id = req.session.user.id
@@ -69,6 +75,15 @@ module.exports = {
         const addPicture = await db.upload_picture({ user_id: id, picture_name: picture_name, picture_pic: url })
         console.log(addPicture)
         res.status(200).send(addPicture)
+    },
+    deleteUserPicture: async (req, res) => {
+        const { picture_id } = req.params
+        const db = req.app.get('db')
+        const deleteUserPicture = await db.delete_user_picture({ picture_id: picture_id })
+        const userPictures = await db.get_user_pictures({ user_id: req.session.user.id })
+        // we do not need to send the deleteUserPicture in this case since we are not trying to send anything back with it
+        // We just deleted the item that we are referencing so their is nothing to send back anyways
+        res.status(200).send(userPictures)
     },
 
     s3Upload: (req, res) => {

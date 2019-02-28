@@ -31,18 +31,26 @@ export default class ProfileBio extends Component {
         this.setState({ bioUpdate: updateText })
     }
 
+    clearInput(e) {
+        e.preventDefault();
+        e.target.reset();
+    }
+
+
+
     render() {
         console.log(this.state)
         return (
             <div>
-                <div>
+                <form onSubmit={this.clearInput.bind(this)}>
                     <button onClick={() => this.updateBio()}> Edit Bio Info </button>
-                    <input onChange={(e) => this.handleUpdate(e.target.value)}></input>
-                </div>
+                    <input onChange={(e) => this.handleUpdate(e.target.value)}  ></input>
+
+                </form>
                 <h4>
                     {this.state.bio}
                 </h4>
-            </div>
+            </div >
         )
     }
 }

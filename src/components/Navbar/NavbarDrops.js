@@ -18,31 +18,31 @@ export default class NavbarDrops extends Component {
                     <button className="you-drop-btn"> You </button>
                     <div className="you-drop-content">
                         <Link to='/Profile'> About </Link>
-                        <a href="#"> Photostream </a>
-                        <a href="#"> Albums </a>
-                        <a href='#'> Faves </a>
-                        <a href='#'> Galleries </a>
-                        <a href='#'> Groups </a>
-                        <a href='#'> Camera Roll</a>
+                        <Link to='/Profile'> Photostream </Link>
+                        <Link to='/Profile'> Albums </Link>
+                        <Link to='/Profile'> Faves </Link>
+                        <Link to='/Profile'> Galleries </Link>
+                        <Link to='/Profile'> Groups </Link>
+                        <Link to='/Profile'> Camera Roll </Link>
                         <hr />
-                        <a href='#'> Recent Activity </a>
-                        <a href='#'> People </a>
-                        <a href='#'> Organize </a>
+                        <Link to='/Profile'> Recent Activity</Link>
+                        <Link to='/Profile'> People </Link>
+                        <Link to='/Profile'> Organize </Link>
                     </div>
                 </div>
 
                 <div className='explore-dropdown'>
                     <Link to='/Explore'>  <button className='explore-drop-btn'> Explore </button> </Link>
                     <div className='explore-drop-content'>
-                        <a href="#"> Recent Photos </a>
-                        <a href='#'> Trending </a>
-                        <a href="#"> Flickr VR </a>
-                        <a href='#'> The Commons </a>
-                        <a href="#"> Galleries </a>
-                        <a href='#'> World Map </a>
-                        <a href='#'> Camera Finder </a>
-                        <a href='#'> The Weekly Flickr </a>
-                        <a href='#'> Flickr Blog </a>
+                        <Link to='/Explore'> Recent Photos </Link>
+                        <Link to='/Explore'> Trending </Link>
+                        <Link to='/Explore'> Flickr VR </Link>
+                        <Link to='/Explore'> The Commons </Link>
+                        <Link to='/Explore'> Galleries </Link>
+                        <Link to='/Explore'> World Map </Link>
+                        <Link to='/Explore'> Camera Finder </Link>
+                        <Link to='/Explore'> The Weekly Flickr </Link>
+                        <Link to='/Explore'> Flickr Blog </Link>
                     </div>
                 </div>
             </div>

@@ -14,3 +14,4 @@ picture_name VARCHAR(50),
 picture_pic TEXT,
 user_id int REFERENCES users(user_id)
 )
+

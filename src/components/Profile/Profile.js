@@ -1,21 +1,20 @@
 import React, { Component } from 'react'
 import Navbar from '../Navbar/Navbar'
-// import ProfileBio from './ProfileBio'
+import UserPictures from './UserPictures'
+import ProfileBio from './ProfileBio'
 import './Profile.css'
+
 
 export default class Profile extends Component {
     constructor(props, res) {
         super(props, res)
         this.state = {
-            "first_name": " ",
-            "last_name": '',
-            "profile_pic": '',
-            "background_pic": '',
-
+            first_name: " ",
+            last_name: '',
+            profile_pic: '',
+            background_pic: '',
         }
     }
-    
-
 
     render() {
         return (
@@ -27,10 +26,13 @@ export default class Profile extends Component {
                 </div>
                 <div className='profile-about-display'>
                     <div className='profile-bio'>
-                        {/* <ProfileBio /> */}
+                        <ProfileBio />
+                    </div>
+                    <div className='profile-images'>
+                        <UserPictures />
                     </div>
                 </div>
-            </div>
+            </div >
         )
     }
 }
