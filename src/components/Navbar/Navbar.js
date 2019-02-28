@@ -75,7 +75,7 @@ class Navbar extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <div>
+            <div className='navBar'>
                 <div className='nav-black-bar'>
                     <Link to='/HomePage'>
                         <img className='home-image-link' src={flickrLogo} alt='' />

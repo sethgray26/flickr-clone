@@ -1,18 +1,35 @@
+.profile-page{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+}
 .profile-back-img{
     height: 26vh;
-    width: 99.1vw;
+    width: 100%;
     background-color: green;
 }
 .profile-mini-nav{
     height: 5vh;
-    width: 99.1vw;
+    width: 100%;
     background-color: bisque
 }
 .profile-about-display{
-    display: flex;
     margin: auto;
     background-color: brown;
     margin-top: 2vh;
     height: 120vh;
     width: 80vw
 }
+
+.profile-images{
+    display: flex;
+    max-height: 100px;
+    max-width: 150px;
+}
+input:focus, textarea {
+    outline: none !important;
+}
+

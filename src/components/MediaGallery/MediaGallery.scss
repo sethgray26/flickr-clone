@@ -15,11 +15,11 @@
 }
 
 .media-gallery-thumbnails-img {
+    // transform: matrix(1,0,0,1,312,4);
     margin: 2px;
     display: flex; 
     width: 398px;
     height: 265px;
-    /* border: white 4px solid; */
 }
 
 .media-gallery-main-img {
@@ -28,7 +28,7 @@
 }
 
 .modal-img-size{
-    height: 50vh;
-    width: 50vw;
+    height: 30vh;
+    width: 30vw;
     margin: 15vh auto
 }

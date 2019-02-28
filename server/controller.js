@@ -68,6 +68,23 @@ module.exports = {
         res.status(200).send(userPictures)
     },
 
+    getFavorites: async (req, res) => {
+        console.log('asdfasdf', req.session.user)
+        const id = req.session.user.id
+        const db = req.app.get('db')
+        const userFaves = await db.user_faves({ user_id: id })
+        res.status(200).send(userFaves)
+    },
+
+    addUserFave: async (req, res) => {
+        const { picture_id } = req.body
+        const id = req.session.user.id
+        const db = req.app.get('db')
+        const addUserFavorite = await db.add_user_fave({ user_id: id, picture_id: picture_id })
+        // const favorites = await db.user_faves({ user_id: id })
+        res.status(200).send(addUserFavorite)
+    },
+
     uploadPicture: async (req, res) => {
         const { picture_name, url } = req.body;
         const id = req.session.user.id
@@ -76,6 +93,7 @@ module.exports = {
         console.log(addPicture)
         res.status(200).send(addPicture)
     },
+
     deleteUserPicture: async (req, res) => {
         const { picture_id } = req.params
         const db = req.app.get('db')
@@ -86,13 +104,21 @@ module.exports = {
         res.status(200).send(userPictures)
     },
 
+    deleteFavorite: async (req, res) => {
+        const { picture_id } = req.params
+        const id = req.session.user.id
+        const db = req.app.get('db')
+        const deleteUserFave = await db.delete_user_fave({ picture_id: picture_id, user_id: id })
+        const favorites = await db.user_faves({ user_id: id })
+        res.status(200).send(favorites)
+    },
+
     s3Upload: (req, res) => {
         aws.config = {
             region: 'us-west-1',
             accessKeyId: AWS_ACCESS_KEY_ID,
             secretAccessKey: AWS_SECRET_ACCESS_KEY,
         };
-
         const s3 = new aws.S3();
         const fileName = req.query['file-name'];
         const fileType = req.query['file-type'];
@@ -103,7 +129,6 @@ module.exports = {
             ContentType: fileType,
             ACL: 'public-read',
         };
-
         s3.getSignedUrl('putObject', s3Params, (err, data) => {
             if (err) {
                 console.log(err);

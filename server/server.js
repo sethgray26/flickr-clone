@@ -36,6 +36,11 @@ massive(CONNECTION_STRING).then((db) => {
 app.post('/api/register', controller.register)
 app.post('/api/login', controller.login)
 
+app.get('/api/favorites', controller.getFavorites)
+app.post('/api/favorites', controller.addUserFave)
+app.delete('/api/favorites/:picture_id', controller.deleteFavorite)
+
+
 
 app.get('/api/profile', controller.userData)
 app.put('/api/bio', controller.updateBio)

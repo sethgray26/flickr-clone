@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
+// import Modal from '@material-ui/core/Modal';
+import PictureModals from '../UserPictures.Modals/PictureModals'
 import axios from 'axios'
 
 
 export default class UserPictures extends Component {
-    constructor(props, res) {
-        super(props, res)
+    constructor(props) {
+        super(props)
         this.state = {
-            userPictures: []
+            userPictures: [],
+            selectedImage: ''
         }
     }
 
@@ -29,21 +32,13 @@ export default class UserPictures extends Component {
 
     render() {
         let displayUserImages = this.state.userPictures.map((image, index) => {
-            const { picture_pic } = image
-            const { picture_id } = image
             return (
+                <PictureModals image={image} key={index} />
 
-
-                <div key={index} image={image}>
-                    <img src={picture_pic} alt='' />
-
-                    <button onClick={() => this.deleteUserPicture(picture_id)}> Delete </button>
-                </div>
             )
         })
         return (
-            <div>
-                <p> Here are your accounts pictures</p>
+            <div className='media-gallery-thumbnails-img' >
                 {displayUserImages}
             </div>
         )
