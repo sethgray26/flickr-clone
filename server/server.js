@@ -16,6 +16,8 @@ app.use(session({
     saveUninitialized: false
 }))
 
+app.use(express.static(`${__dirname}/../build`));
+
 app.use(async (req, res, next) => {
     if (NODE_ENV === 'development' && !req.session.user) {
         const db = req.app.get('db');

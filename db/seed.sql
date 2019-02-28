@@ -21,3 +21,10 @@ favorite_id INTEGER NOT NULL,
 user_id INTEGER REFERENCES users(user_id),
 picture_id INTEGER 
 )
+
+CREATE TABLE user_faves
+(
+ID INTEGER PRIMARY KEY,
+user_id INTEGER,
+picture_id INTEGER
+)
