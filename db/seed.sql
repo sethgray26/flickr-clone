@@ -15,3 +15,9 @@ picture_pic TEXT,
 user_id int REFERENCES users(user_id)
 )
 
+CREATE TABLE favorites
+(
+favorite_id INTEGER NOT NULL,
+user_id INTEGER REFERENCES users(user_id),
+picture_id INTEGER 
+)
