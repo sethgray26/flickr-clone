@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import Modal from '@material-ui/core/Modal';
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
+import Navbar from '../Navbar/Navbar'
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import './MediaGallery.scss'
 
@@ -12,7 +16,8 @@ export default class MediaGallery extends Component {
         this.state = {
             items: [],
             selectedImage: '',
-            open: false
+            open: false,
+            value: 0
         }
     }
     componentDidMount() {
@@ -48,28 +53,49 @@ export default class MediaGallery extends Component {
     render() {
         const { selectedImage } = this.state;
         return (
-            <div className="media-gallery">
-                <div className="media-gallery-thumbnails" onClick={this.handleOpen}>
+            <div className='explore-page'>
+                <Navbar />
+                <div className='explore-sub-nav'>
+                    <div className='explore-sub-nav-content'>
+                        <Tabs
+                            value={this.state.value}
+                            onChange={this.handleChange}
+                            indicatorColor="primary"
+                            textColor="primary"
+                            variant="fullWidth"
+                            style={{ marginLeft: 60 }}
+                        >
+                            <Tab label='Explore' href='/#/Explore' />
+                            <Tab className='trending-tab' label='Trending' href='/#/Explore' />
+                        </Tabs>
 
-                    {this.state.items.length ? this.state.items.map((item, index) =>
-
-                        <div key={index} onClick={this.selectImage.bind(this, this.imageURL(item))}>
-
-                            <img className="media-gallery-thumbnails-img" src={this.imageURL(item)} alt='' />
-
-                        </div>) : <div>Loading...</div>
-                    }
-
+                    </div>
                 </div>
 
-                <div>
-                    <Modal
-                        open={this.state.open}
-                        onClose={this.handleClose}>
-                        <div className='modal-img-size'>
-                            <img className="media-gallery-main-img" src={selectedImage} alt='' />
-                        </div>
-                    </Modal>
+                <div className="media-gallery">
+                    <div className='title-explore'>
+                        <h3> Explore </h3>
+                    </div>
+                    <div className="media-gallery-thumbnails" onClick={this.handleOpen}>
+
+                        {this.state.items.length ? this.state.items.map((item, index) =>
+
+                            <div key={index} onClick={this.selectImage.bind(this, this.imageURL(item))}>
+
+                                <img className="media-gallery-thumbnails-img" src={this.imageURL(item)} alt='' />
+
+                            </div>) : <div>Loading...</div>
+                        }
+                    </div>
+                    <div>
+                        <Modal
+                            open={this.state.open}
+                            onClose={this.handleClose}>
+                            <div className='modal-img-size'>
+                                <img className="media-gallery-main-img" src={selectedImage} alt='' />
+                            </div>
+                        </Modal>
+                    </div>
                 </div>
             </div>
         )

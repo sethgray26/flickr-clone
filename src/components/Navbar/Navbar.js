@@ -77,34 +77,36 @@ class Navbar extends Component {
         return (
             <div className='navBar'>
                 <div className='nav-black-bar'>
-                    <Link to='/HomePage'>
-                        <img className='home-image-link' src={flickrLogo} alt='' />
-                    </Link>
-                    <NavbarDrops />
-                    <p className='nav-create'> Create </p>
-                    <p className='nav-getPro'> Get Pro </p>
-                    <div className={classes.root}>
-                        <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
-                        </IconButton>
-                        <div className={classes.grow} />
-                        <div className={classes.search}>
-                            <div className={classes.searchIcon}>
-                                <SearchIcon />
-                            </div>
-                            <InputBase
-                                placeholder="Photos, people, or groups"
-                                classes={{
-                                    root: classes.inputRoot,
-                                    input: classes.inputInput,
-                                }}
-                                style={{ fontSize: 12, marginLeft: -12 }}
+                    <div className='navbar-center'>
+                        <Link to='/HomePage'>
+                            <img className='home-image-link' src={flickrLogo} alt='' />
+                        </Link>
+                        <NavbarDrops />
+                        <p className='nav-create'> Create </p>
+                        <p className='nav-getPro'> Get Pro </p>
+                        <div className={classes.root}>
+                            <IconButton className={classes.menuButton} color="inherit" aria-label="Open drawer">
+                            </IconButton>
+                            <div className={classes.grow} />
+                            <div className={classes.search}>
+                                <div className={classes.searchIcon}>
+                                    <SearchIcon />
+                                </div>
+                                <InputBase
+                                    placeholder="Photos, people, or groups"
+                                    classes={{
+                                        root: classes.inputRoot,
+                                        input: classes.inputInput,
+                                    }}
+                                    style={{ fontSize: 12, marginLeft: -12 }}
 
-                            />
+                                />
+                            </div>
                         </div>
+                        <Link to='/upload'> <CloudUploadIcon className={classes.rightIcon} style={{ marginLeft: 205, color: 'white', marginTop: 10, height: 30, width: 50, cursor: 'pointer' }} /> </Link>
+                        <NotificationsIcon className={classes.rightIcon} style={{ marginLeft: 0, color: 'white', marginTop: 10, height: 30, width: 50, cursor: 'pointer' }} />
+                        <Avatar alt="User Avatar" src={devmtnLogo} style={{ marginTop: 7, marginLeft: 5, height: 35, width: 35, cursor: 'pointer' }} />
                     </div>
-                    <Link to='/upload'> <CloudUploadIcon className={classes.rightIcon} style={{ marginLeft: 205, color: 'white', marginTop: 10, height: 30, width: 50, cursor: 'pointer' }} /> </Link>
-                    <NotificationsIcon className={classes.rightIcon} style={{ marginLeft: 0, color: 'white', marginTop: 10, height: 30, width: 50, cursor: 'pointer' }} />
-                    <Avatar alt="User Avatar" src={devmtnLogo} style={{ marginTop: 7, marginLeft: 5, height: 35, width: 35, cursor: 'pointer' }} />
                 </div>
             </div>
         )

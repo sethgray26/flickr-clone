@@ -1,34 +1,50 @@
 .navBar{
-    width: 100vw
+    height: 50px;
+    width: 100%;
+    background-color: #212124;
+}
+.navbar-center{
+	display: flex;
+    justify-content: space-between;
+    /* width: 90%; */
+}
+.nav-black-bar{
+    height: 50px;
+    min-width: 800px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 130px;
+    padding-right: 130px;
+    /* background-color: red; */
+     /* display: flex; */
+    /* height: 50px; */
+    /* max-width: 100%; */
+    /* margin: auto; */
+    background-color:  #212124;
+     /* font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif; */
 }
 
-.nav-black-bar{
-    display: flex;
-    height: 50px;
-    background-color:  #212124;
-    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
-}
+
 
 .home-image-link{
     height: 23px;
     margin-top: 13px;
-    /* margin-left: 190px; */
-    margin-left: 8.9vw;
+    /* margin-left: 8.9vw; */
 }
 
 .nav-create{
     color: white;
     cursor: pointer;
-    margin-left: 28px;
+    /* margin-left: 28px; */
     margin-top: 16px;
     font-size: 15px;
-    /* font-weight: bold */
 }
 .nav-getPro{
     color: white;
     cursor: pointer;
-    margin-left: 35px;
-    margin-right: 40vw;
+    /* padding-left: 35px; */
+    /* margin-right: 40vw; */
     margin-top: 16px;
     font-size: 15px;
 }

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Tab from '@material-ui/core/Tab'
+import Tabs from '@material-ui/core/Tabs'
+import Card from '@material-ui/core/Card';
 import Navbar from '../Navbar/Navbar'
 import './HomePage.css'
 
@@ -11,26 +14,31 @@ export default class PrimarySearchAppBar extends Component {
     };
   }
 
-
-
   render() {
-
     return (
-      <div className='homepage-back-color'>
+      <div className='homepage-backdrop'>
         < Navbar />
-        <div className='sub-nav-bar'>
-          wassup
+        <div className='homepage-subnav'>
+          <div className='homepage-subnav-content'>
+            <Tabs
+              onChange={this.handleChange}
+              indicatorColor="primary"
+              textColor="primary"
+              variant="fullWidth"
+              style={{ marginLeft: 60 }}
+            >
+              <Tab id='tabs-bottombar' label='All Activity' href='/#/Explore' />
+              <Tab id='tabs-bottombar' label='People' href='/#/People' />
+              <Tab id='tabs-bottombar' label='Groups' href='/#/People' />
+            </Tabs>
+          </div>
         </div>
-        <div className='home-card-holder'>
-          <div className='home-display-card'>
-          </div>
-          <div className='home-display-card'>
-          </div>
-          <div className='home-display-card'>
-          </div>
-          <div className='home-display-card'>
-          </div>
+        <div className='homepage-card-holder'>
+          <Card >
+            
+          </Card>
         </div>
+
       </div>
     );
   }
