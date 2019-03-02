@@ -3,6 +3,7 @@ import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
 import Card from '@material-ui/core/Card';
 import Navbar from '../Navbar/Navbar'
+import { Link } from 'react-router-dom'
 import './HomePage.css'
 
 
@@ -35,7 +36,7 @@ export default class PrimarySearchAppBar extends Component {
         </div>
         <div className='homepage-card-holder'>
           <Card >
-            
+            <Link to='/Playground'> playground </Link>
           </Card>
         </div>
 
@@ -43,4 +44,3 @@ export default class PrimarySearchAppBar extends Component {
     );
   }
 }
-
