@@ -47,9 +47,9 @@ export default class ProfileBio extends Component {
         e.target.reset();
     }
 
-    onUpdateBioClick() {
-        document.getElementById('textInput').className = 'show'
-    }
+    // onUpdateBioClick() {
+    //     document.getElementById('textInput').className = 'show'
+    // }
 
 
     render() {

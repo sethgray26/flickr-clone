@@ -34,11 +34,10 @@ export default class UserPictures extends Component {
         let displayUserImages = this.state.userPictures.map((image, index) => {
             return (
                 <PictureModals deleteUserPicture={() => this.deleteUserPicture(image.picture_id)} image={image} key={index} />
-
             )
         })
         return (
-            <div className='media-gallery-thumbnails-img' >
+            <div className='profile-gallery-thumbnails-img' >
                 {displayUserImages}
             </div>
         )

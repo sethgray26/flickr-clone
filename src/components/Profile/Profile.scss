@@ -1,20 +1,22 @@
 .profile-page{
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: stretch;
-	align-content: stretch;
+	// display: flex;
+	// flex-direction: row;
+	// flex-wrap: wrap;
+	// justify-content: flex-start;
+	// align-items: stretch;
+    // align-content: stretch;
+    width: 100%;
+    background-color: pink
 }
 .profile-back-img{
-    min-height: 26vh;
+    min-height: 250px;
     min-width: 100%;
     background-image: url(http://getwallpapers.com/wallpaper/full/f/6/6/1199690-4k-ultra-hd-nature-wallpaper-3840x2160-for-android-50.jpg);
     background-position: center;
     background-size: cover;
 }
 .profile-mini-nav{
-    height: 5vh;
+    height: 50px;
     width: 100%;
     background-color: #fff;
     position: relative;
@@ -25,6 +27,7 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 .profile-mini-nav-content{
     display: flex;
     justify-content: space-between;
@@ -35,29 +38,28 @@
     padding-left: 130px;
     padding-right: 130px;
 }
+
 #profileTabs-bottombar:hover{
     border-bottom: 3px solid #00a5ff;
 }
 
-
-
-
-
-
-
 .profile-about-display{
-    margin: auto;
-    background-color: brown;
     margin-top: 2vh;
-    height: 120vh;
-    width: 80vw
+    width: 80vw;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    // padding-left: 130px;
+    // padding-right: 130px;
+    background-color: brown;
 }
 
-.profile-images{
+.profile-image-thumbnails{
     display: flex;
     max-height: 100px;
     max-width: 150px;
 }
+
 input:focus, textarea {
     outline: none !important;
 }

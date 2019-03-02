@@ -20,7 +20,6 @@ export default class Profile extends Component {
             <div className='profile-page'>
                 <Navbar />
                 <div className='profile-back-img'>
-
                 </div>
                 <div className='profile-mini-nav'>
                     <div className='profile-mini-nav-content'>
@@ -29,7 +28,7 @@ export default class Profile extends Component {
                             indicatorColor="primary"
                             textColor="primary"
                             variant="fullWidth"
-                            style={{ marginLeft: 60 }}
+                            value={7}
                         >
                             <Tab id='profileTabs-bottombar' label='About' href='/#/Profile' />
                             <Tab id='profileTabs-bottombar' label='Photostream' href='/#/Profile' />
@@ -44,15 +43,14 @@ export default class Profile extends Component {
                     </div>
 
                 </div>
+               
                 <div className='profile-about-display'>
-
                     <div className='profile-bio'>
                         <ProfileBio />
                     </div>
-
                     <hr />
 
-                    <div className='media-gallery-thumbnails'>
+                    <div className='profile-image-thumbnails'>
 
                         <UserPictures />
 

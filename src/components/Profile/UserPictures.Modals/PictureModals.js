@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Modal from '@material-ui/core/Modal';
-import './PictureModals.css'
+import './PictureModals.scss'
 // import axios from 'axios
 
 
@@ -26,14 +26,16 @@ export default class PictureModals extends Component {
         const { picture_id } = image
         return (
             <div>
-                <div className="media-gallery-thumbnails">
-                    <img className="media-gallery-thumbnails-img" onClick={() => this.handleOpen('open')} src={picture_pic} alt=''></img>
+                <div className="profile-gallery-thumbnails">
+                    {/* if confused about profile-gallery look at media-gallery stuff */}
+                    <img className="profile-gallery-thumbnails-img" onClick={() => this.handleOpen('open')} src={picture_pic} alt=''></img>
 
                     <button onClick={() => this.props.deleteUserPicture(picture_id)}> Delete </button>
                     <Modal open={this.state.open} onClose={this.handleClose}>
                         <figure className='modal-img-size'>
+                        {/* modal-img-size styling in explore.scss */}
                             {/* <button onClick={() => this.handleClose('open')}> X </button> */}
-                            <img className='media-gallery-main-img' src={picture_pic} alt='' />
+                            <img className='profile-gallery-main-img' src={picture_pic} alt='' />
                         </figure>
                     </Modal>
                 </div>
