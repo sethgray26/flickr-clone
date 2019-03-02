@@ -37,7 +37,7 @@
   background-color: #212124;
   color: white;
   font-size: 15px;
-  margin-left: 5px; 
+  /* margin-left: 30px;  */
   font-weight: 400;
   border: none;
   cursor: pointer;
@@ -45,7 +45,6 @@
 .explore-dropdown {
   position: relative;
   display: inline-block;
-  /* margin-right: 60vw; */
   margin-left: 25px;
   margin-top: 15px;
 }

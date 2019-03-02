@@ -6,8 +6,8 @@
 .navbar-center{
 	display: flex;
     justify-content: space-between;
-    /* width: 90%; */
 }
+
 .nav-black-bar{
     height: 50px;
     min-width: 800px;
@@ -16,35 +16,26 @@
     margin-right: auto;
     padding-left: 130px;
     padding-right: 130px;
-    /* background-color: red; */
-     /* display: flex; */
-    /* height: 50px; */
-    /* max-width: 100%; */
-    /* margin: auto; */
     background-color:  #212124;
-     /* font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif; */
 }
-
-
 
 .home-image-link{
     height: 23px;
     margin-top: 13px;
-    /* margin-left: 8.9vw; */
 }
 
 .nav-create{
     color: white;
     cursor: pointer;
-    /* margin-left: 28px; */
-    margin-top: 16px;
+    margin-top: 17px;
+    margin-left: -80px;
     font-size: 15px;
 }
+
 .nav-getPro{
     color: white;
     cursor: pointer;
-    /* padding-left: 35px; */
-    /* margin-right: 40vw; */
     margin-top: 16px;
+    margin-left: -80px;
     font-size: 15px;
 }

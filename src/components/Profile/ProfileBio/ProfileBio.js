@@ -1,5 +1,16 @@
 import React, { Component } from 'react'
+import './ProfileBio.scss'
 import axios from 'axios'
+import TextField from '@material-ui/core/TextField'
+import Fab from '@material-ui/core/Fab';
+import EditIcon from '@material-ui/icons/Edit'
+
+const styles = theme => ({
+    TextField: {
+        marginLeft: theme.spacing.unit,
+        marginRight: theme.spacing.unit,
+    },
+})
 
 
 export default class ProfileBio extends Component {
@@ -36,15 +47,34 @@ export default class ProfileBio extends Component {
         e.target.reset();
     }
 
+    onUpdateBioClick() {
+        document.getElementById('textInput').className = 'show'
+    }
 
 
     render() {
         console.log(this.state)
         return (
-            <div>
+            <div id='profile-bio'>
                 <form onSubmit={this.clearInput.bind(this)}>
-                    <button onClick={() => this.updateBio()}> Edit Bio Info </button>
-                    <input onChange={(e) => this.handleUpdate(e.target.value)}  ></input>
+                    <Fab color="secondary" aria-label="Edit">
+                        <EditIcon onClick={() => this.updateBio()} />
+                    </Fab>
+                    {/* <button onClick={() => this.updateBio()}> Edit Bio Info </button> */}
+                    <TextField
+                        id="outlined-full-width"
+                        label="Label"
+                        style={{ margin: 8 }}
+                        placeholder="Placeholder"
+                        fullWidth
+                        margin="normal"
+                        variant="outlined"
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
+                        onChange={(e) => this.handleUpdate(e.target.value)}
+                    />
+                    {/* <textarea onChange={(e) => this.handleUpdate(e.target.value)}></textarea> */}
 
                 </form>
                 <h4>

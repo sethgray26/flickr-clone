@@ -1,0 +1,64 @@
+.profile-page{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+	align-content: stretch;
+}
+.profile-back-img{
+    min-height: 26vh;
+    min-width: 100%;
+    background-image: url(http://getwallpapers.com/wallpaper/full/f/6/6/1199690-4k-ultra-hd-nature-wallpaper-3840x2160-for-android-50.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.profile-mini-nav{
+    height: 5vh;
+    width: 100%;
+    background-color: #fff;
+    position: relative;
+    overflow: visible;
+    box-shadow: inset 0 -2px transparent;
+    border-bottom: 1px solid hsla(0,0%,54%,.3);
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+.profile-mini-nav-content{
+    display: flex;
+    justify-content: space-between;
+    min-width: 800px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 130px;
+    padding-right: 130px;
+}
+#profileTabs-bottombar:hover{
+    border-bottom: 3px solid #00a5ff;
+}
+
+
+
+
+
+
+
+.profile-about-display{
+    margin: auto;
+    background-color: brown;
+    margin-top: 2vh;
+    height: 120vh;
+    width: 80vw
+}
+
+.profile-images{
+    display: flex;
+    max-height: 100px;
+    max-width: 150px;
+}
+input:focus, textarea {
+    outline: none !important;
+}
+
