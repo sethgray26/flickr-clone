@@ -10,10 +10,6 @@ import './LandingPage.css'
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from 'react-slick'
-import kitten1 from '../../photos/kitten1.jpg'
-import kitten2 from '../../photos/kitten2.jpg'
-import kitten3 from '../../photos/kitten3.jpg'
 import { Hidden } from '@material-ui/core';
 
 
@@ -67,18 +63,9 @@ class LandingPage extends Component {
 
 
     render() {
-        const settings = {
-            // infinite: true,
-            speed: 1200,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 1200,
-            fade: true,
-            fadeSpeed: 1200
-        };
+
         return (
-            <div id='landingpage' style={{overflowX: Hidden, overflowY: Hidden}}>
+            <div id='landingpage' style={{ overflowX: Hidden, overflowY: Hidden }}>
                 <div className='fadeimgholder'>
                     <img id='fadeImg-1' src='https://i.pinimg.com/originals/5b/27/ee/5b27ee4e7ded85ef8f6e87141273d92b.jpg' alt='' />
                     <img id='fadeImg-2' src='https://wallpaperplay.com/walls/full/d/7/4/13602.jpg' alt='' />
@@ -106,16 +93,6 @@ class LandingPage extends Component {
                     <h2 className='landing-bottom-text'> photos and 2 million groups. </h2>
                 </div>
                 <Button variant='contained' component={Link} to='/Signup' style={{ marginLeft: '43.7vw', marginTop: '3vh', height: "4rem", width: '12.8rem', fontSize: 19, backgroundColor: 'white', fontWeight: 600 }}> Sign Up </Button>
-                {/* <div className='landingpageSlider'>
-                    <Slider {...settings}>
-                        <div className='kitten1'> <img src={kitten1} alt='' /> </div>
-                        <div className='kitten1'> <img src={kitten2} alt='' /> </div>
-                        <div className='kitten1'> <img src={kitten3} alt='' /> </div>
-                        <div className='kitten1'> <img src={kitten1} alt='' /> </div>
-                        <div className='kitten1'> <img src={kitten2} alt='' /> </div>
-                        <div className='kitten1'> <img src={kitten3} alt='' /> </div>
-                    </Slider>
-                </div> */}
 
                 <div className='landing-footer'>
                     <div className='foot-nav'>

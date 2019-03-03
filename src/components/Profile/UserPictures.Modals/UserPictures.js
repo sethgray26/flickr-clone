@@ -36,6 +36,7 @@ export default class UserPictures extends Component {
                 <PictureModals deleteUserPicture={() => this.deleteUserPicture(image.picture_id)} image={image} key={index} />
             )
         })
+        
         return (
             <div className='profile-gallery-thumbnails-img' >
                 {displayUserImages}

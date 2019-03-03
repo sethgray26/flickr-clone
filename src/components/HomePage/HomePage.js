@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
-import Card from '@material-ui/core/Card';
+import HomePageCards from './HomePageCards/HomePageCards'
 import Navbar from '../Navbar/Navbar'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
 import './HomePage.css'
 
 
@@ -12,10 +12,31 @@ export default class PrimarySearchAppBar extends Component {
   constructor() {
     super()
     this.state = {
+      userPictures: [],
+      selectedImage: ''
     };
   }
 
+  componentDidMount() {
+    this.getUserImages()
+  }
+
+  getUserImages = () => {
+    axios.get(`/api/userPictures`).then(res => {
+      this.setState({ userPictures: res.data })
+    })
+  }
+
+
+
   render() {
+    let displayUserImages = this.state.userPictures.map((image, index) => {
+      
+      return (
+        <HomePageCards image={image} key={index} />
+      )
+    })
+
     return (
       <div className='homepage-backdrop'>
         < Navbar />
@@ -34,10 +55,11 @@ export default class PrimarySearchAppBar extends Component {
             </Tabs>
           </div>
         </div>
+
         <div className='homepage-card-holder'>
-          <Card >
-            <Link to='/Playground'> playground </Link>
-          </Card>
+
+          {displayUserImages}
+
         </div>
 
       </div>

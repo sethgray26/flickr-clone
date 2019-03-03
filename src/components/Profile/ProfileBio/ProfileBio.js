@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
 import './ProfileBio.scss'
 import axios from 'axios'
-import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
 import Fab from '@material-ui/core/Fab';
 import EditIcon from '@material-ui/icons/Edit'
 
-const styles = theme => ({
-    TextField: {
-        marginLeft: theme.spacing.unit,
-        marginRight: theme.spacing.unit,
-    },
-})
+
+
 
 
 export default class ProfileBio extends Component {
@@ -18,7 +14,8 @@ export default class ProfileBio extends Component {
         super(props, res)
         this.state = {
             bio: '',
-            bioUpdate: ''
+            bioUpdate: '',
+            shown: true
         }
     }
 
@@ -42,44 +39,57 @@ export default class ProfileBio extends Component {
         this.setState({ bioUpdate: updateText })
     }
 
-    clearInput(e) {
-        e.preventDefault();
-        e.target.reset();
+    toggleShown() {
+        this.setState({
+            shown: !this.state.shown
+        });
     }
 
-    // onUpdateBioClick() {
-    //     document.getElementById('textInput').className = 'show'
-    // }
+    onClickStuffs() {
+        this.toggleShown()
+        this.updateBio()
+    }
 
 
     render() {
         console.log(this.state)
+        var shown = { display: this.state.shown ? "block" : "none" };
+        var hidden = { display: this.state.shown ? "none" : "block" }
+
         return (
             <div id='profile-bio'>
-                <form onSubmit={this.clearInput.bind(this)}>
-                    <Fab color="secondary" aria-label="Edit">
-                        <EditIcon onClick={() => this.updateBio()} />
-                    </Fab>
-                    {/* <button onClick={() => this.updateBio()}> Edit Bio Info </button> */}
-                    <TextField
-                        id="outlined-full-width"
-                        label="Label"
-                        style={{ margin: 8 }}
-                        placeholder="Placeholder"
-                        fullWidth
-                        margin="normal"
-                        variant="outlined"
-                        InputLabelProps={{
-                            shrink: true,
-                        }}
-                        onChange={(e) => this.handleUpdate(e.target.value)}
-                    />
-                    {/* <textarea onChange={(e) => this.handleUpdate(e.target.value)}></textarea> */}
+                <form>
+                    <h4 className='bio-display-text' style={shown}>
+                        {this.state.bio}
+                    </h4>
+
+                    <textarea
+                        style={hidden}
+                        className='bio-textBox'
+                        maxLength='200'
+                        onChange={(e) => this.handleUpdate(e.target.value)}>
+                    </textarea>
+
+                    <div className='edit-bio-button'>
+                        <Fab
+                            style={shown}
+                            color="secondary"
+                            aria-label="Edit"
+                            onClick={() => this.toggleShown()}
+                        > <EditIcon />
+                        </Fab>
+                    </div>
+
+                    <div className='bio-save-button'>
+                        <Button
+                            style={hidden}
+                            variant="contained"
+                            color="primary"
+                            onClick={() => this.onClickStuffs()}>Save Bio</Button>
+                    </div>
 
                 </form>
-                <h4>
-                    {this.state.bio}
-                </h4>
+
             </div >
         )
     }

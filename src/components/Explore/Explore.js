@@ -3,7 +3,6 @@ import Modal from '@material-ui/core/Modal';
 import Tab from '@material-ui/core/Tab'
 import Tabs from '@material-ui/core/Tabs'
 import Navbar from '../Navbar/Navbar'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 import './Explore.scss'
 
@@ -15,7 +14,7 @@ export default class Explore extends Component {
             items: [],
             selectedImage: '',
             open: false,
-            value: 0
+            value: 1
         }
     }
     componentDidMount() {

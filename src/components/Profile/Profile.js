@@ -23,12 +23,11 @@ export default class Profile extends Component {
                 </div>
                 <div className='profile-mini-nav'>
                     <div className='profile-mini-nav-content'>
-                        <Tabs
+                        <Tabs 
                             onChange={this.handleChange}
                             indicatorColor="primary"
                             textColor="primary"
                             variant="fullWidth"
-                            value={7}
                         >
                             <Tab id='profileTabs-bottombar' label='About' href='/#/Profile' />
                             <Tab id='profileTabs-bottombar' label='Photostream' href='/#/Profile' />
@@ -48,7 +47,6 @@ export default class Profile extends Component {
                     <div className='profile-bio'>
                         <ProfileBio />
                     </div>
-                    <hr />
 
                     <div className='profile-image-thumbnails'>
 
