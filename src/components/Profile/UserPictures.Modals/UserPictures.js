@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import Modal from '@material-ui/core/Modal';
 import PictureModals from '../UserPictures.Modals/PictureModals'
+import './UserPictures.scss'
 import axios from 'axios'
 
 
@@ -36,9 +37,9 @@ export default class UserPictures extends Component {
                 <PictureModals deleteUserPicture={() => this.deleteUserPicture(image.picture_id)} image={image} key={index} />
             )
         })
-        
+
         return (
-            <div>
+            <div className='profile-img-display'>
                 {displayUserImages}
             </div>
         )

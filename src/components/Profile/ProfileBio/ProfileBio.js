@@ -66,8 +66,9 @@ export default class ProfileBio extends Component {
                     <textarea
                         style={hidden}
                         className='bio-textBox'
-                        maxLength='200'
-                        onChange={(e) => this.handleUpdate(e.target.value)}>
+                        maxLength='250'
+                        onChange={(e) => this.handleUpdate(e.target.value)}
+                    >
                     </textarea>
 
                     <div className='edit-bio-button'>

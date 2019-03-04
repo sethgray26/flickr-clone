@@ -20,11 +20,11 @@ import devmtnLogo from '../../../photos/devmtnLogo.png';
 const styles = theme => ({
     card: {
         maxWidth: 400,
-        marginTop: 20
+        marginTop: 20,
     },
     media: {
         height: 0,
-        paddingTop: '56.25%', // 16:9
+        // paddingTop: '56.25%', // 16:9
     },
     actions: {
         display: 'flex',
@@ -55,7 +55,6 @@ class HomePageCards extends Component {
     getUserInfo = () => {
         axios.get(`/api/profile`).then(res => {
             this.setState({ userInfo: res.data })
-            console.log(res.data)
         })
     }
 
@@ -98,19 +97,11 @@ class HomePageCards extends Component {
                         </p>
                     }
                 />
-                {/* <CardMedia
-                    className={classes.media}
-                    image="https://www.petmd.com/sites/default/files/petmd-kitten-development.jpg"
-                    title="Paella dish"
-                >
-                </CardMedia> */}
-                <img className="profile-gallery-thumbnails-img" onClick={() => this.handleOpen('open')} src={picture_pic} alt=''></img>
+                <img className="profile-thumbnails-img" onClick={() => this.handleOpen('open')} src={picture_pic} alt=''></img>
 
-                <CardContent >
-                    <Typography component="p">
+                    <Typography component="p" style={{marginLeft: 50, maxWidth: 200}}>
                         {picture_description}
                     </Typography>
-                </CardContent>
 
                 <CardActions className={classes.actions} disableActionSpacing>
                     <IconButton aria-label="Add to favorites">

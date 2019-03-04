@@ -1,14 +1,34 @@
+.profile-IMAGES{
+    display: flex;
+    flex-wrap: wrap;
+    width: 370px;
+
+}
+
 .profile-thumbnails{
     display: flex;
-    width: 100%;
+    flex-wrap: wrap;
     overflow: auto; 
     overflow-y: hidden;
-    flex-wrap: wrap;
+    margin: 0;
 }
 
 .profile-thumbnails-img{
     margin: 2px;
     display: flex;
-    width: 365px;
-    height: 265px;
+    width: 350px;
+    height: 255px;
+}
+
+.profile-modal-img-size{
+    display: flex;
+    justify-content: center;
+    width: 350px;
+    height: 255px;
+    margin: 15vh auto
+}
+
+.modalDeleteButton{
+    max-width: 50px;
+    max-height: 50px;
 }

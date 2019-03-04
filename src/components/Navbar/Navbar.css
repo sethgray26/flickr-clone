@@ -28,7 +28,7 @@
     color: white;
     cursor: pointer;
     margin-top: 17px;
-    margin-left: -80px;
+    margin-left: -280px;
     font-size: 15px;
 }
 
@@ -36,11 +36,36 @@
     color: white;
     cursor: pointer;
     margin-top: 16px;
-    margin-left: -80px;
+    margin-left: -200px;
+    margin-right: 280px;
     font-size: 15px;
 }
 
 .usersName{
     color: white;
     font-size: 16px;
+    margin-left: -10vw
 }
+
+.avatar-dropdown{
+    
+}
+
+.avatar-drop-content{
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    margin-left: -120px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  .avatar-drop-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  .avatar-drop-content a:hover {background-color: #ddd;}
+  .avatar-dropdown:hover .avatar-drop-content {display: block;}
+  .avatar-dropdown:hover .avatar-drop-btn {background-color: #212124;}

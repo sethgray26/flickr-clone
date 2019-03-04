@@ -87,7 +87,9 @@ export default class Explore extends Component {
                     <div>
                         <Modal
                             open={this.state.open}
-                            onClose={this.handleClose}>
+                            onClose={this.handleClose}
+                            disableAutoFocus={true}
+                        >
                             <div className='modal-img-size'>
                                 <img className="media-gallery-main-img" src={selectedImage} alt='' />
                             </div>

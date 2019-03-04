@@ -48,11 +48,8 @@ export default class Profile extends Component {
                         <ProfileBio />
                     </div>
 
-                    <div id='profile-img-display'>
-
-                        <UserPictures />
-
-                    </div>
+                    <UserPictures />
+                    
                 </div>
             </div >
         )

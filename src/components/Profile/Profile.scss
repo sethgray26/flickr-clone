@@ -1,5 +1,5 @@
 .profile-page{
-    // min-height: 100%;
+    min-height: 100vh;
     width: 100%;
     background-color: pink
 }
@@ -41,21 +41,9 @@
 .profile-about-display{
     margin-top: 2vh;
     width: 80vw;
-    height: 100vh;
     margin-left: auto;
     margin-right: auto;
-    // padding-left: 130px;
-    // padding-right: 130px;
     background-color: white;
 }
 
-#profile-img-display{
-    display: flex;
-    flex-wrap: wrap;
-    min-width: 78.5%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 130px;
-    padding-right: 130px;
-}
 
