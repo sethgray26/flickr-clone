@@ -8,7 +8,7 @@ import People from './components/People/People'
 import Profile from './components/Profile/Profile'
 import Explore from './components/Explore/Explore'
 import Upload from './components/Upload/Upload'
-import Playground from './components/Playground/Playground'
+// import Playground from './components/Playground/Playground'
 
 export default (
     <Switch>
@@ -20,6 +20,6 @@ export default (
         <Route path='/profile' component={Profile} />
         <Route path='/explore' component={Explore} />
         <Route path='/upload' component={Upload} />
-        <Route path='/playground' component={Playground} />
+        {/* <Route path='/playground' component={Playground} /> */}
     </Switch>
 )

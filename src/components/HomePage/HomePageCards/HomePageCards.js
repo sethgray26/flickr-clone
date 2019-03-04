@@ -49,7 +49,7 @@ class HomePageCards extends Component {
         super(props)
         this.state = {
             expanded: false,
-            open: false
+            open: false,
         };
     }
 
@@ -68,11 +68,15 @@ class HomePageCards extends Component {
     render() {
         const { classes } = this.props;
         const { image } = this.props;
-        const { picture_pic } = image;
-        const { picture_id } = image;
+        // const { info } = this.props;
+        // console.log(image)
+        const { picture_pic, picture_description, picture_name } = image;
+        // const { first_name } = info
         return (
             <Card className={classes.card}>
-
+                <p>
+                    {/* {first_name} */}
+                </p>
                 <CardHeader
                     avatar={
                         <Avatar aria-label="Recipe" className={classes.avatar} src={devmtnLogo}>
@@ -83,7 +87,7 @@ class HomePageCards extends Component {
                             <MoreVertIcon />
                         </IconButton>
                     }
-                    title=""
+                    title={picture_name}
                 />
                 {/* <CardMedia
                     className={classes.media}
@@ -95,7 +99,7 @@ class HomePageCards extends Component {
 
                 <CardContent >
                     <Typography component="p">
-                        Just Look at this kitty is way too cute
+                        {picture_description}
                     </Typography>
                 </CardContent>
 

@@ -26,7 +26,7 @@ module.exports = {
     login: async (req, res) => {
         const { first_name, last_name, email, password } = req.body;
         const db = req.app.get('db');
-        const userArr = await db.find_user({ email: email })
+        const userArr = await db.find_user({ email: email, first_name: first_name, last_name: last_name })
         if (!userArr[0]) {
             return res.status(200).send({ message: 'Email not found' })
         }
@@ -34,11 +34,11 @@ module.exports = {
         if (!result) {
             return res.status(401).send({ message: 'Invalid Password' })
         }
-        req.session.user = { id: userArr[0].user_id, email: userArr[0].email }
+        req.session.user = { id: userArr[0].user_id, email: userArr[0].email, first_name: userArr[0].first_name, last_name: userArr[0].last_name }
         res.status(200).send({
             message: 'Logged In', userData: {
                 ...req.session.user, profile_pic:
-                    'https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/820/s200/dev-mountain-logo.png'
+                'https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/820/s200/dev-mountain-logo.png'
             }, loggedIn: true
         })
     },
@@ -86,10 +86,10 @@ module.exports = {
     },
 
     uploadPicture: async (req, res) => {
-        const { picture_name, url } = req.body;
+        const { picture_name, url, picture_description } = req.body;
         const id = req.session.user.id
         const db = req.app.get('db')
-        const addPicture = await db.upload_picture({ user_id: id, picture_name: picture_name, picture_pic: url })
+        const addPicture = await db.upload_picture({ user_id: id, picture_name: picture_name, picture_pic: url, picture_description: picture_description })
         console.log(addPicture)
         res.status(200).send(addPicture)
     },

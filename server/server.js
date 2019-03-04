@@ -22,7 +22,7 @@ app.use(async (req, res, next) => {
     if (NODE_ENV === 'development' && !req.session.user) {
         const db = req.app.get('db');
         const userArr = await db.find_user({ email: 's' })
-        req.session.user = { id: userArr[0].user_id, email: userArr[0].email }
+        req.session.user = { id: userArr[0].user_id, email: userArr[0].email, first_name: userArr[0].first_name, last_name: userArr[0].last_name }
     }
     next()
 })
@@ -42,7 +42,11 @@ app.delete('/api/favorites/:picture_id', controller.deleteFavorite)
 
 
 
+
 app.get('/api/profile', controller.userData)
+
+
+
 app.put('/api/bio', controller.updateBio)
 app.get('/api/bio', controller.getBio)
 

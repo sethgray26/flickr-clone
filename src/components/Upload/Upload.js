@@ -12,7 +12,8 @@ class Upload extends Component {
     this.state = {
       isUploading: false,
       url: 'http://via.placeholder.com/450x450',
-      picture_name: ''
+      picture_name: '',
+      picture_description: ''
     };
   }
 
@@ -41,13 +42,17 @@ class Upload extends Component {
     axios.put(signedRequest, file, options).then(response => {
       this.setState({ isUploading: false, url });
       const { picture_name } = this.state
-      axios.post(`/api/upload`, { url, picture_name })
-
+      const { picture_description } = this.state
+      axios.post(`/api/upload`, { url, picture_name, picture_description })
     })
   };
 
   handleName(newName) {
     this.setState({ picture_name: newName })
+  }
+
+  handleDescript(newDescript) {
+    this.setState({ picture_description: newDescript })
   }
 
   render() {
@@ -60,7 +65,10 @@ class Upload extends Component {
           <h1>Upload</h1>
           <h1>{url}</h1>
           <img src={url} alt="" width="450px" />
-
+          <p> Picture Name: </p>
+          <input onChange={(e) => { this.handleName(e.target.value) }} />
+          <p> Picture Description </p>
+          <input onChange={(e) => { this.handleDescript(e.target.value) }} />
           <Dropzone
             onDropAccepted={this.onDrop}
             style={{
@@ -88,7 +96,7 @@ class Upload extends Component {
               )
             }}
           </Dropzone>
-          <input onChange={(e) => { this.handleName(e.target.value) }} />
+
         </div>
       </div>
     );
