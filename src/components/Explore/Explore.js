@@ -19,7 +19,7 @@ export default class Explore extends Component {
     }
     componentDidMount() {
         var _this = this;
-        this.serverRequest = axios.get('https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=ca3783111609d69139840916b7a01ad2&format=json&nojsoncallback=1&per_page=30').then(function (result) {
+        this.serverRequest = axios.get('https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=ca3783111609d69139840916b7a01ad2&format=json&nojsoncallback=1&per_page=28').then(function (result) {
             _this.setState({
                 items: result.data.photos.photo,
                 selectedImage: _this.imageURL(result.data.photos.photo[0])

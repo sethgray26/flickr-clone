@@ -23,7 +23,7 @@ export default class Profile extends Component {
                 </div>
                 <div className='profile-mini-nav'>
                     <div className='profile-mini-nav-content'>
-                        <Tabs 
+                        <Tabs
                             onChange={this.handleChange}
                             indicatorColor="primary"
                             textColor="primary"
@@ -42,13 +42,13 @@ export default class Profile extends Component {
                     </div>
 
                 </div>
-               
+
                 <div className='profile-about-display'>
                     <div className='profile-bio'>
                         <ProfileBio />
                     </div>
 
-                    <div className='profile-image-thumbnails'>
+                    <div id='profile-img-display'>
 
                         <UserPictures />
 

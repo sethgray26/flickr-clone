@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
+// import { Link } from 'react-router-dom'
+import axios from 'axios'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import devmtnLogo from '../../../photos/devmtnLogo.png';
 // import UserPictures from '../../../components/Profile/UserPictures.Modals/UserPictures';
 
-
 const styles = theme => ({
     card: {
         maxWidth: 400,
+        marginTop: 20
     },
     media: {
         height: 0,
@@ -36,12 +36,6 @@ const styles = theme => ({
             duration: theme.transitions.duration.shortest,
         }),
     },
-    expandOpen: {
-        transform: 'rotate(180deg)',
-    },
-    avatar: {
-        backgroundColor: red[500],
-    },
 });
 
 class HomePageCards extends Component {
@@ -50,7 +44,19 @@ class HomePageCards extends Component {
         this.state = {
             expanded: false,
             open: false,
+            userInfo: []
         };
+    }
+
+    componentDidMount() {
+        this.getUserInfo()
+    }
+
+    getUserInfo = () => {
+        axios.get(`/api/profile`).then(res => {
+            this.setState({ userInfo: res.data })
+            console.log(res.data)
+        })
     }
 
 
@@ -68,15 +74,13 @@ class HomePageCards extends Component {
     render() {
         const { classes } = this.props;
         const { image } = this.props;
-        // const { info } = this.props;
-        // console.log(image)
         const { picture_pic, picture_description, picture_name } = image;
-        // const { first_name } = info
         return (
-            <Card className={classes.card}>
-                <p>
-                    {/* {first_name} */}
-                </p>
+            <Card className={classes.card}
+
+            >
+                {/* {this.state.userInfo.first_name} {this.state.userInfo.last_name} */}
+
                 <CardHeader
                     avatar={
                         <Avatar aria-label="Recipe" className={classes.avatar} src={devmtnLogo}>
@@ -88,6 +92,11 @@ class HomePageCards extends Component {
                         </IconButton>
                     }
                     title={picture_name}
+                    subheader={
+                        <p>
+                            {this.state.userInfo.first_name} {this.state.userInfo.last_name}
+                        </p>
+                    }
                 />
                 {/* <CardMedia
                     className={classes.media}

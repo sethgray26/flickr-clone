@@ -21,7 +21,7 @@ app.use(express.static(`${__dirname}/../build`));
 app.use(async (req, res, next) => {
     if (NODE_ENV === 'development' && !req.session.user) {
         const db = req.app.get('db');
-        const userArr = await db.find_user({ email: 's' })
+        const userArr = await db.find_user({ email: `sethgray26@yahoo.com` })
         req.session.user = { id: userArr[0].user_id, email: userArr[0].email, first_name: userArr[0].first_name, last_name: userArr[0].last_name }
     }
     next()
@@ -35,6 +35,10 @@ massive(CONNECTION_STRING).then((db) => {
 
 app.post('/api/register', controller.register)
 app.post('/api/login', controller.login)
+app.get('/api/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/')
+})
 
 app.get('/api/favorites', controller.getFavorites)
 app.post('/api/favorites', controller.addUserFave)

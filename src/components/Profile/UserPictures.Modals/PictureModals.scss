@@ -1,4 +1,4 @@
-.profile-gallery-thumbnails{
+.profile-thumbnails{
     display: flex;
     width: 100%;
     overflow: auto; 
@@ -6,20 +6,9 @@
     flex-wrap: wrap;
 }
 
-.profile-gallery-thumbnails-img {
+.profile-thumbnails-img{
     margin: 2px;
     display: flex;
-    width: 385px;
+    width: 365px;
     height: 265px;
-}
-
-.modal-img-size{
-    height: 30vh;
-    width: 30vw;
-    margin: 15vh auto
-}
-
-.profile-gallery-main-img{
-    width: 100%;
-    border: white 2px solid;
 }

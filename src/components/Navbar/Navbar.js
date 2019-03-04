@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from 'axios'
 import { Link } from 'react-router-dom'
 import IconButton from '@material-ui/core/IconButton';
 import InputBase from '@material-ui/core/InputBase';
@@ -67,13 +68,25 @@ class Navbar extends Component {
     constructor(props) {
         super(props)
         this.state = {
-
+            userInfo: []
         }
+    }
+
+    componentDidMount() {
+        this.getUserInfo()
+    }
+
+    getUserInfo = () => {
+        axios.get(`/api/profile`).then(res => {
+            this.setState({ userInfo: res.data })
+            console.log(res.data)
+        })
     }
 
 
     render() {
         const { classes } = this.props;
+        console.log(this.state.userInfo.first_name)
         return (
             <div className='navBar'>
                 <div className='nav-black-bar'>
@@ -105,6 +118,9 @@ class Navbar extends Component {
                         </div>
                         <Link to='/upload'> <CloudUploadIcon className={classes.rightIcon} style={{ marginLeft: 205, color: 'white', marginTop: 10, height: 30, width: 50, cursor: 'pointer' }} /> </Link>
                         <NotificationsIcon className={classes.rightIcon} style={{ marginLeft: 0, color: 'white', marginTop: 10, height: 30, width: 50, cursor: 'pointer' }} />
+                        <p className='usersName'>
+                            {this.state.userInfo.first_name}
+                        </p>
                         <Avatar alt="User Avatar" src={devmtnLogo} style={{ marginTop: 7, marginLeft: 5, height: 35, width: 35, cursor: 'pointer' }} />
                     </div>
                 </div>

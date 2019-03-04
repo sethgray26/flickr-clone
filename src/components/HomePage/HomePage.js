@@ -40,17 +40,14 @@ export default class PrimarySearchAppBar extends Component {
 
 
   render() {
+    console.log(this.state.userInfo)
     let displayUserImages = this.state.userPictures.map((image, index) => {
+      console.log(image)
       return (
         <HomePageCards image={image} key={index} />
       )
     })
-    let displayUserInfo = Object.keys(this.state.userInfo).map((name, index) => {
-      // console.log(name)
-      return (
-        <HomePageCards name key={index} />
-      )
-    })
+
 
     return (
       <div className='homepage-backdrop' >
@@ -63,7 +60,7 @@ export default class PrimarySearchAppBar extends Component {
               textColor="primary"
               variant="fullWidth"
               style={{ marginLeft: 60 }}
-              value={2}
+              value={0}
             >
               <Tab id='tabs-bottombar' label='All Activity' href='/#/Explore' />
               <Tab id='tabs-bottombar' label='People' href='/#/People' />
@@ -74,7 +71,6 @@ export default class PrimarySearchAppBar extends Component {
 
         <div className='homepage-card-holder'>
           {displayUserImages}
-          {/* {displayUserInfo} */}
         </div>
 
       </div>
