@@ -45,7 +45,7 @@ const styles = theme => ({
     },
     inputRoot: {
         color: 'gray',
-        width: '150%',
+        width: '100%',
     },
     inputInput: {
         paddingTop: theme.spacing.unit,

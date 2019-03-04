@@ -20,7 +20,9 @@ import devmtnLogo from '../../../photos/devmtnLogo.png';
 const styles = theme => ({
     card: {
         maxWidth: 400,
+        marginLeft: 10,
         marginTop: 20,
+        margin: 'auto'
     },
     media: {
         height: 0,
@@ -76,10 +78,7 @@ class HomePageCards extends Component {
         const { picture_pic, picture_description, picture_name } = image;
         return (
             <Card className={classes.card}
-
             >
-                {/* {this.state.userInfo.first_name} {this.state.userInfo.last_name} */}
-
                 <CardHeader
                     avatar={
                         <Avatar aria-label="Recipe" className={classes.avatar} src={devmtnLogo}>
@@ -99,9 +98,9 @@ class HomePageCards extends Component {
                 />
                 <img className="profile-thumbnails-img" onClick={() => this.handleOpen('open')} src={picture_pic} alt=''></img>
 
-                    <Typography component="p" style={{marginLeft: 50, maxWidth: 200}}>
-                        {picture_description}
-                    </Typography>
+                <Typography component="p" style={{ marginLeft: 50, maxWidth: 200 }}>
+                    {picture_description}
+                </Typography>
 
                 <CardActions className={classes.actions} disableActionSpacing>
                     <IconButton aria-label="Add to favorites">

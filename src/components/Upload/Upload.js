@@ -11,7 +11,7 @@ class Upload extends Component {
     super();
     this.state = {
       isUploading: false,
-      url: 'http://via.placeholder.com/450x450',
+      // url: 'http://via.placeholder.com/450x450',
       picture_name: '',
       picture_description: ''
     };
