@@ -1,0 +1,45 @@
+$homeBackground: #F3F5F6;
+$subNavColor: #fff;
+$tabHoverColor: #00a5ff;
+
+.homepage-backdrop{
+    min-height: 100vh;
+    width: 100%;
+    background-color: $homeBackground;
+}
+
+.homepage-subnav{
+    background-color: $subNavColor;
+    width: 100%;
+    height: 50px;
+    position: relative;
+    overflow: visible;
+    box-shadow: inset 0 -2px transparent;
+    border-bottom: 1px solid hsla(0,0%,54%,.3);
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.homepage-subnav-content{
+    display: flex;
+    justify-content: space-between;
+    min-width: 800px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 130px;
+    padding-right: 130px;
+}
+
+#tabs-bottombar:hover{
+    border-bottom: 3px solid $tabHoverColor;
+}
+
+.homepage-card-holder{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding:    50px; 
+    margin: auto;
+}

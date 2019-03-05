@@ -1,0 +1,36 @@
+$bioShadow: #e3e3e3;
+$textBoxShadow: #9ea4a7;
+
+#profile-bio{
+    width: 100%;
+    box-shadow: 0 0 0 1px $bioShadow;
+}
+
+.bio-textBox{
+    width: 80%;
+    height: 20vh;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    box-shadow: inset 0 0 0 1px $textBoxShadow;
+    border: none;
+    resize: none;
+}
+
+.bio-save-button{
+    padding-top: 7%;
+}
+
+.edit-bio-button{
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.bio-display-text{
+    margin: 0;
+    width: 77%;
+    padding-left: 10%;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    word-wrap: break-word;
+}

@@ -14,8 +14,9 @@ export default class NavbarDrops extends Component {
     render() {
         return (
             <div>
-                <div className="you-dropdown">
-                    <button className="you-drop-btn"> You </button>
+                <div className="you-dropdown" style={{marginLeft: -80}}>
+
+                <Link to='/Profile'> <button className="you-drop-btn"> You </button> </Link>
                     <div className="you-drop-content">
                         <Link to='/Profile'> About </Link>
                         <Link to='/Profile'> Photostream </Link>

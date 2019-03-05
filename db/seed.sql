@@ -12,6 +12,7 @@ CREATE TABLE pictures(
 picture_id SERIAL PRIMARY KEY,
 picture_name VARCHAR(50),
 picture_pic TEXT,
+picture_description VARCHAR(200),
 user_id int REFERENCES users(user_id)
 )
 
@@ -22,9 +23,10 @@ user_id INTEGER REFERENCES users(user_id),
 picture_id INTEGER 
 )
 
+
 CREATE TABLE user_faves
 (
-ID INTEGER PRIMARY KEY,
-user_id INTEGER,
+ID SERIAL PRIMARY KEY,
+user_id INTEGER REFERENCES users(user_id),
 picture_id INTEGER
 )

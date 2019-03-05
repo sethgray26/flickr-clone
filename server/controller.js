@@ -26,7 +26,7 @@ module.exports = {
     login: async (req, res) => {
         const { first_name, last_name, email, password } = req.body;
         const db = req.app.get('db');
-        const userArr = await db.find_user({ email: email })
+        const userArr = await db.find_user({ email: email, first_name: first_name, last_name: last_name })
         if (!userArr[0]) {
             return res.status(200).send({ message: 'Email not found' })
         }
@@ -34,7 +34,7 @@ module.exports = {
         if (!result) {
             return res.status(401).send({ message: 'Invalid Password' })
         }
-        req.session.user = { id: userArr[0].user_id, email: userArr[0].email }
+        req.session.user = { id: userArr[0].user_id, email: userArr[0].email, first_name: userArr[0].first_name, last_name: userArr[0].last_name }
         res.status(200).send({
             message: 'Logged In', userData: {
                 ...req.session.user, profile_pic:
@@ -58,24 +58,45 @@ module.exports = {
 
     getBio: async (req, res) => {
         const db = req.app.get('db')
-        const userBio = await db.get_bio({ user_id: req.session.user.id })
+        const id = req.session.user.id
+        const userBio = await db.get_bio({ user_id: id })
         res.status(200).send(userBio)
     },
 
     getUserPictures: async (req, res) => {
         const db = req.app.get('db');
-        const userPictures = await db.get_user_pictures({ user_id: req.session.user.id })
+        const id = req.session.user.id
+        console.log(req.session.user.id)
+        const userPictures = await db.get_user_pictures({ user_id: id })
         res.status(200).send(userPictures)
     },
 
-    uploadPicture: async (req, res) => {
-        const { picture_name, url } = req.body;
+    getFavorites: async (req, res) => {
+        console.log('asdfasdf', req.session.user)
         const id = req.session.user.id
         const db = req.app.get('db')
-        const addPicture = await db.upload_picture({ user_id: id, picture_name: picture_name, picture_pic: url })
+        const userFaves = await db.user_faves({ user_id: id })
+        res.status(200).send(userFaves)
+    },
+
+    addUserFave: async (req, res) => {
+        const { picture_id } = req.body
+        const id = req.session.user.id
+        const db = req.app.get('db')
+        const addUserFavorite = await db.add_user_fave({ user_id: id, picture_id: picture_id })
+        // const favorites = await db.user_faves({ user_id: id })
+        res.status(200).send(addUserFavorite)
+    },
+
+    uploadPicture: async (req, res) => {
+        const { picture_name, url, picture_description } = req.body;
+        const id = req.session.user.id
+        const db = req.app.get('db')
+        const addPicture = await db.upload_picture({ user_id: id, picture_name: picture_name, picture_pic: url, picture_description: picture_description })
         console.log(addPicture)
         res.status(200).send(addPicture)
     },
+
     deleteUserPicture: async (req, res) => {
         const { picture_id } = req.params
         const db = req.app.get('db')
@@ -86,13 +107,21 @@ module.exports = {
         res.status(200).send(userPictures)
     },
 
+    deleteFavorite: async (req, res) => {
+        const { picture_id } = req.params
+        const id = req.session.user.id
+        const db = req.app.get('db')
+        const deleteUserFave = await db.delete_user_fave({ picture_id: picture_id, user_id: id })
+        const favorites = await db.user_faves({ user_id: id })
+        res.status(200).send(favorites)
+    },
+
     s3Upload: (req, res) => {
         aws.config = {
             region: 'us-west-1',
             accessKeyId: AWS_ACCESS_KEY_ID,
             secretAccessKey: AWS_SECRET_ACCESS_KEY,
         };
-
         const s3 = new aws.S3();
         const fileName = req.query['file-name'];
         const fileType = req.query['file-type'];
@@ -103,7 +132,6 @@ module.exports = {
             ContentType: fileType,
             ACL: 'public-read',
         };
-
         s3.getSignedUrl('putObject', s3Params, (err, data) => {
             if (err) {
                 console.log(err);

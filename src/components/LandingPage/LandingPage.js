@@ -8,7 +8,9 @@ import Button from '@material-ui/core/Button'
 import flickrLogo from '../../photos/flickrLogo.svg'
 import './LandingPage.css'
 
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { Hidden } from '@material-ui/core';
 
 
 
@@ -58,15 +60,20 @@ class LandingPage extends Component {
         }
     }
 
-    
+
 
     render() {
+
         return (
-            <div id='landingpage' >
+            <div id='landingpage' style={{ overflowX: Hidden, overflowY: Hidden }}>
+                <div className='fadeimgholder'>
+                    <img id='fadeImg-1' src='https://i.pinimg.com/originals/5b/27/ee/5b27ee4e7ded85ef8f6e87141273d92b.jpg' alt='' />
+                    <img id='fadeImg-2' src='https://wallpaperplay.com/walls/full/d/7/4/13602.jpg' alt='' />
+                    <img id='fadeImg-3' src='https://i.pinimg.com/originals/5c/4b/67/5c4b672e04cc92914959cc8e9e8125c7.jpg' alt='' />
+                    <img id='fadeImg-4' src='https://shchd.org/app/uploads/2019/01/background-calm-clouds-747964.jpg' alt='' />
+                </div>
                 <div className='landing-nav'>
-                    <div className='flickr-logo' >
-                            <img src={flickrLogo} alt=''></img>
-                    </div>
+                    <div className='flickr-logo' ><img src={flickrLogo} alt=''></img></div>
 
                     <div className='landing-search'>
                         <SearchIcon />
@@ -74,16 +81,19 @@ class LandingPage extends Component {
                     </div>
 
                     <Link to='Signin'> <h4 className='login-link'> Log In </h4> </Link>
+
                     <Button className='nav-signup-btn' variant='contained' component={Link} to='/Signup'
                         style={{ marginTop: 15, marginRight: 24, backgroundColor: 'white' }}
                     > Sign up </Button>
+
                 </div>
                 <div className='landing-text'>
                     <h1 className='landing-top-text'> Find Your Inspiration.</h1>
                     <h2 className='landing-mid-text'> Join the Flickr community, home to tens of billions of </h2>
-                    <h2 className='landing-bottom-text'>photos and 2 million groups. </h2>
+                    <h2 className='landing-bottom-text'> photos and 2 million groups. </h2>
                 </div>
                 <Button variant='contained' component={Link} to='/Signup' style={{ marginLeft: '43.7vw', marginTop: '3vh', height: "4rem", width: '12.8rem', fontSize: 19, backgroundColor: 'white', fontWeight: 600 }}> Sign Up </Button>
+
                 <div className='landing-footer'>
                     <div className='foot-nav'>
                         <p> About </p>
@@ -103,3 +113,6 @@ class LandingPage extends Component {
 }
 
 export default withStyles(styles)(LandingPage)
+
+
+
