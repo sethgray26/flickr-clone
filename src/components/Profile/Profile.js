@@ -29,6 +29,7 @@ export default class Profile extends Component {
                             textColor="primary"
                             variant="fullWidth"
                             style={{marginLeft: 150}}
+                            value={1}
                         >
                             <Tab id='profileTabs-bottombar' label='About' href='/#/Profile' />
                             <Tab id='profileTabs-bottombar' label='Photostream' href='/#/Profile' />

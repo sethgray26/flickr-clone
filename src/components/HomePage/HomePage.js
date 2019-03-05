@@ -4,7 +4,7 @@ import Tabs from '@material-ui/core/Tabs'
 import HomePageCards from './HomePageCards/HomePageCards'
 import Navbar from '../Navbar/Navbar'
 import axios from 'axios'
-import './HomePage.css'
+import './HomePage.scss'
 
 
 
@@ -23,10 +23,11 @@ export default class PrimarySearchAppBar extends Component {
     this.getUserInfo()
   }
 
+  
+
   getUserImages = () => {
     axios.get(`/api/userPictures`).then(res => {
       this.setState({ userPictures: res.data })
-      // console.log(res.data)
     })
   }
 

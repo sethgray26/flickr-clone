@@ -38,7 +38,7 @@ module.exports = {
         res.status(200).send({
             message: 'Logged In', userData: {
                 ...req.session.user, profile_pic:
-                'https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/820/s200/dev-mountain-logo.png'
+                    'https://course_report_production.s3.amazonaws.com/rich/rich_files/rich_files/820/s200/dev-mountain-logo.png'
             }, loggedIn: true
         })
     },
@@ -58,13 +58,16 @@ module.exports = {
 
     getBio: async (req, res) => {
         const db = req.app.get('db')
-        const userBio = await db.get_bio({ user_id: req.session.user.id })
+        const id = req.session.user.id
+        const userBio = await db.get_bio({ user_id: id })
         res.status(200).send(userBio)
     },
 
     getUserPictures: async (req, res) => {
         const db = req.app.get('db');
-        const userPictures = await db.get_user_pictures({ user_id: req.session.user.id })
+        const id = req.session.user.id
+        console.log(req.session.user.id)
+        const userPictures = await db.get_user_pictures({ user_id: id })
         res.status(200).send(userPictures)
     },
 

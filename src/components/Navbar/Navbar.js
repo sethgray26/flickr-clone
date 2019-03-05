@@ -138,7 +138,7 @@ class Navbar extends Component {
                                     style={{ marginTop: 7, marginLeft: 5, height: 35, width: 35, cursor: 'pointer' }} />
                             </Link>
 
-                            <div class='avatar-drop-content'>
+                            <div className='avatar-drop-content'>
                                 <p> Hello, {this.state.userInfo.first_name}!</p>
                                 <Link to='/Profile'> My Account </Link>
                             </div>

@@ -1,7 +1,11 @@
+$pink: pink;
+$subNavColor: #fff;
+$tabHoverColor: #00a5ff;
+
 .profile-page{
     min-height: 100vh;
     width: 100%;
-    background-color: pink
+    background-color: $pink;
 }
 .profile-back-img{
     min-height: 250px;
@@ -13,7 +17,7 @@
 .profile-mini-nav{
     height: 50px;
     width: 100%;
-    background-color: #fff;
+    background-color: $subNavColor;
     position: relative;
     overflow: visible;
     box-shadow: inset 0 -2px transparent;
@@ -35,7 +39,7 @@
 }
 
 #profileTabs-bottombar:hover{
-    border-bottom: 3px solid #00a5ff;
+    border-bottom: 3px solid $tabHoverColor;
 }
 
 .profile-about-display{

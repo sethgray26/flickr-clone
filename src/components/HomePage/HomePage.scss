@@ -1,11 +1,15 @@
+$homeBackground: #F3F5F6;
+$subNavColor: #fff;
+$tabHoverColor: #00a5ff;
+
 .homepage-backdrop{
     min-height: 100vh;
     width: 100%;
-    background-color: #F3F5F6;
+    background-color: $homeBackground;
 }
 
 .homepage-subnav{
-    background-color: #fff;
+    background-color: $subNavColor;
     width: 100%;
     height: 50px;
     position: relative;
@@ -29,7 +33,7 @@
 }
 
 #tabs-bottombar:hover{
-    border-bottom: 3px solid #00a5ff;
+    border-bottom: 3px solid $tabHoverColor;
 }
 
 .homepage-card-holder{

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom'
 import axios from 'axios'
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
@@ -15,7 +13,6 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import devmtnLogo from '../../../photos/devmtnLogo.png';
-// import UserPictures from '../../../components/Profile/UserPictures.Modals/UserPictures';
 
 const styles = theme => ({
     card: {
