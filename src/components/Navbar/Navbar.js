@@ -141,9 +141,9 @@ class Navbar extends Component {
                             <div className='avatar-drop-content'>
                                 <p> Hello, {this.state.userInfo.first_name}!</p>
                                 <Link to='/Profile'> My Account </Link>
+                                <a href='/'> Logout </a>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

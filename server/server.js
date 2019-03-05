@@ -44,7 +44,10 @@ app.get('/api/favorites', controller.getFavorites)
 app.post('/api/favorites', controller.addUserFave)
 app.delete('/api/favorites/:picture_id', controller.deleteFavorite)
 
-
+app.get('/api/logout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/')
+})
 
 
 app.get('/api/profile', controller.userData)
