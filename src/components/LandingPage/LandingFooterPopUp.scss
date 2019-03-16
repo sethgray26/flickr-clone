@@ -1,0 +1,25 @@
+.footerPopUp-Container {
+    position: absolute;
+    width: 55vw;
+    bottom: 0;
+    background-color: red;
+    animation: LandingFooterPopUp 1s forwards;
+}
+
+@keyframes LandingFooterPopUp {
+    from {
+        bottom: -3em;
+        opacity: 0;
+    }
+    to {
+        bottom: 0;
+        opacity: .8;
+        background-color: blue;
+    }
+}
+
+.footer-pop-up {
+    position: absolute;
+    width: 100%;
+    z-index: auto;
+}

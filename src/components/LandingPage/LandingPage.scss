@@ -1,0 +1,141 @@
+#landing-page-main {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url("https://s.yimg.com/ap/build/images/sohp/2018-top-25/niagarafallsinwinter_small.jpg");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.landing-nav-container {
+    padding-left: 2em;
+    padding-right: 2em;
+    max-height: 4em;
+    background: rgba(0, 0, 0, .25);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: stretch;
+    align-content: stretch;
+    height: 5em; // border: 3px solid green
+}
+
+.landing-logo {
+    // border: 3px solid red;
+    // /* border-left: 3px solid red; */
+    // /* border-right: 3px solid red; */
+    width: 5em;
+}
+
+.landing-nav-tools {
+    // border: 3px solid blue;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; // justify-content: space-around;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+.landing-nav-tools>li {
+    margin-left: 1.4375em;
+}
+
+.landing-search {
+    // border: 3px solid pink;
+    background-color: transparent;
+    width: 100%;
+    padding: 0 6.25em;
+    display: flex;
+    align-items: center;
+}
+
+.landing-search-form {
+    width: 100%; // border: 3px solid brown;
+    margin-right: .5625em;
+    background-color: rgba($color: white, $alpha: .6);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+}
+
+.landing-search .MuiInputBase-root-10 {
+    // border: 3px solid red;
+    width: 100%;
+}
+
+.landing-nav-tools .login-link {
+    // border: 3px solid brown;
+}
+
+.landing-nav-tools .nav-signup-btn {
+    // border: 3px solid yellow;
+}
+
+.landing-middle-holder {
+    position: absolute;
+    height: 70%;
+    width: 100%;
+    padding: 0, 3.75em;
+}
+
+.landing-center-container {
+    // border: 3px solid yellow;
+    padding-top: 9.5em;
+    max-width: 40em;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 1538px) {
+    .landing-center-container {
+        padding-top: 13.5em;
+    }
+}
+
+.landing-center-container h1 {
+    font-size: 3.5em; // line-height: 3.5em;
+}
+
+.landing-center-container .landing-mid-text {
+    font-size: 1.625em;
+    display: flex; // flex-direction: column;
+    // flex-wrap: wrap;
+    // justify-content: center;
+    // align-items: center;
+    // align-content: center;
+}
+
+.landing-footer-container {
+    // border: 3px solid pink;
+    background-color: black;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    align-content: stretch;
+}
+
+.footer-nav {
+    // border: 3px solid cyan;
+    width: 55%;
+    display: flex;
+    flex-direction: row;
+    font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
+    font-size: .85vw;
+    color: gray;
+    margin: auto;
+    justify-content: space-between;
+}

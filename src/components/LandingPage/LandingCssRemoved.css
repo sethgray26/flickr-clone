@@ -1,18 +1,15 @@
-
-
-
-.landing-nav{
+/* .landing-nav {
     display: flex;
     max-height: 64px;
     justify-content: space-between;
     background-color: rgba(0, 0, 0, 0.25);
 }
 
-.landing-nav h4{
+.landing-nav h4 {
     color: white
 }
 
-.flickr-logo{
+.flickr-logo {
     display: flex;
     justify-content: center;
     height: 2.3vh;
@@ -20,121 +17,101 @@
     margin-top: 2vh;
 }
 
-.landing-search{
+.landing-search {
     position: relative;
     width: 78vw;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    align-items:center; 
+    align-items: center;
 }
-.landing-search input{
+
+.landing-search input {
     background-color: rgba(0, 0, 0, 0.1);
     width: 76vw;
     height: 2.5vh;
 }
 
-.login-link{
+.login-link {
     font-weight: 100
 }
 
-.nav-signup-btn{
+.nav-signup-btn {
     height: 2.5rem;
     width: 6.3rem;
     margin-bottom: 1.5vh;
     margin-left: 1.5vw;
 }
 
-.landingpageSlider{
+.landingpageSlider {
     height: 100vh;
     width: 100vw;
     position: absolute
 }
-.kitten1{
-    height: 100vh;
-    width: 100vw;
-    z-index: -999;
-    background-position: center;
-    background-size: cover;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    /* position: absolute; */
-}
 
-.fadeimgholder{
-    position:absolute;
-    top:0px;
+.fadeimgholder {
+    position: absolute;
+    top: 0px;
     height: 100%;
-    /* left:50%; */
-    z-index: -9999999999;
-    margin:auto;
+    z-index: -10;
+    margin: auto;
 }
-
 
 .fadeimgholder img {
-    position:absolute;
-    top:0;
-    -webkit-animation-name: fade;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-duration: 48s;
+    position: absolute;
+    top: 0;
     animation-name: fade;
     animation-iteration-count: infinite;
     animation-duration: 48s;
 }
 
-@-webkit-keyframes fade {
-    0% {opacity: 0;}
-    20% {opacity: 1;}
-    33% {opacity: 1;}
-    83% {opacity: 1;}
-    100% {opacity: 0;}
-}
 @keyframes fade {
-    0% {opacity: 0;}
-    20% {opacity: 1;}
-    33% {opacity: 1;}
-    83% {opacity: 1;}
-    100% {opacity: 0;}
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    33% {
+        opacity: 1;
+    }
+    83% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }
 
-#fadeImg-1{
+#fadeImg-3 {
+    -webkit-animation-delay: -12s;
     height: 100%;
     width: 100vw;
 }
-#fadeImg-2{
-    -webkit-animation-delay: -12s;
-    height: 100%;
-    width: 100vw;    
-}
-#fadeImg-3{
+
+#fadeImg-4 {
     -webkit-animation-delay: -24s;
     height: 100%;
-    width: 100vw;    
-}
-#fadeImg-4{
-    -webkit-animation-delay: -36s;
-    height: 100%;
-    width: 100vw;    
+    width: 100vw;
 }
 
-
-#landingpage{
+#landingpage {
     height: 100vh;
     width: 100vw;
     box-sizing: border-box;
     overflow-x: hidden;
     overflow-y: hidden;
-    background-position:center;
+    background-position: center;
     background-size: cover;
     color: white;
 }
 
-.landing-text{
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
+.landing-text {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
     align-content: stretch;
     max-width: 640px;
     margin: 0 auto;
@@ -142,21 +119,23 @@
     font-family: "Proxima Nova", "helvetica neue", helvetica, arial, sans-serif;
 }
 
-.landing-top-text{
+.landing-top-text {
     font-size: 56px;
-    margin-top: 3vh; 
+    margin-top: 3vh;
     font-weight: 500;
 }
-.landing-mid-text{
+
+.landing-mid-text {
     font-size: 25px;
     margin-top: -1.5vh;
 }
-.landing-bottom-text{
+
+.landing-bottom-text {
     font-size: 25px;
     margin-top: -1.4vh;
 }
 
-.landing-footer{
+.landing-footer {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -168,7 +147,7 @@
     height: 52px;
 }
 
-.foot-nav{
+.foot-nav {
     width: 55vw;
     display: flex;
     flex-direction: row;
@@ -180,7 +159,7 @@
     justify-content: space-between;
 }
 
-.foot-nav p:hover{
+.foot-nav p:hover {
     color: #cccccc;
     transition: .2s;
-}
+} */
