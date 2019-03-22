@@ -1,0 +1,97 @@
+@import '../../Assets/Variables';
+.navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 3.125em;
+    width: 100%;
+    background-color: $flickr-black;
+}
+
+.nav-left {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    width: 40%;
+    border: red solid 2px;
+    .logo {
+        padding-right: 2em;
+        img {
+            height: 5em;
+            width: 5em;
+        }
+    }
+    #nav-item {
+        color: $flickr-white;
+        padding-right: 2em;
+    }
+}
+
+.nav-right {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    width: 40%;
+    border: red solid 2px;
+    .nav-search {
+        padding-right: 1em;
+        form {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background-color: rgba($color: white, $alpha: .8);
+            border-radius: .8vh;
+        }
+        .nav-searchIcon {
+            height: 1.2em;
+            width: 5%;
+        }
+        .nav-inputBase {
+            width: 97%;
+        }
+    }
+    .nav-upload {
+        height: 50%;
+        width: 5%;
+        .nav-upload-link {
+            color: $flickr-white;
+        }
+    }
+    .nav-notifications {
+        height: 50%;
+        width: 5%;
+        .nav-notif-icon {
+            color: $flickr-white;
+        }
+    }
+}
+
+.nav-profile-actions {
+    .avatar-drop-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        a:hover {
+            background-color: $flickr-gray;
+        }
+    }
+}
+
+.nav-profile-actions:hover .avatar-drop-content {
+    display: block;
+}

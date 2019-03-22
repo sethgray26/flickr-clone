@@ -7,6 +7,7 @@
   border: none;
   cursor: pointer;
   margin-left: -120px
+  border  3px solid green;
 }
 .you-dropdown {
   position: relative;
@@ -43,6 +44,7 @@
   font-weight: 400;
   border: none;
   cursor: pointer;
+  border: 3px solid green;
 }
 .explore-dropdown {
   position: relative;

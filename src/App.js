@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
-import './App.css';
+import './App.scss';
 import routes from './routes'
 
 class App extends Component {

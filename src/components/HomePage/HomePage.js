@@ -53,7 +53,7 @@ export default class PrimarySearchAppBar extends Component {
     return (
       <div className='homepage-backdrop' >
         < Navbar />
-        <div className='homepage-subnav'>
+        {/* <div className='homepage-subnav'>
           <div className='homepage-subnav-content'>
             <Tabs
               onChange={this.handleChange}
@@ -68,7 +68,7 @@ export default class PrimarySearchAppBar extends Component {
               <Tab id='tabs-bottombar' label='Groups' href='/#/People' />
             </Tabs>
           </div>
-        </div>
+        </div> */}
 
         <div className='homepage-card-holder'>
           {displayUserImages}
