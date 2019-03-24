@@ -1,0 +1,62 @@
+@import '../../Assets/Variables';
+.upload-page {
+    height: 100vh;
+    width: 100%;
+    background-color: $flickr-black;
+    .semi-circle {
+        height: 100%;
+        width: 100%;
+        background-color: whitesmoke;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+    }
+}
+
+.upload-header {
+    display: flex;
+    justify-content: center;
+}
+
+.upload-photo-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.info-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.uploaded-img {
+    display: flex;
+    img {
+        display: block;
+        width: 500px;
+        height: 400px;
+        padding: .3em;
+        border: 3px solid $flickr-black;
+        object-fit: cover;
+    }
+}
+
+.upload-dropzone {
+    position: relative;
+    height: 11.5em;
+    width: 11.5em;
+    border-width: 7;
+    margin-top: 2.125em;
+    border: 3px solid $flickr-black;
+    border-radius: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.5em;
+}

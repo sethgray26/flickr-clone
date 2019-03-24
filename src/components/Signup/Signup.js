@@ -40,15 +40,19 @@ class Signup extends Component {
                         <TextField
                             className="first-name"
                             placeholder="First Name"
-                            className={TextField}
                             margin="normal"
+                            InputLabelProps={{
+                                shrink: true
+                            }}
                             onChange={(e) => this.setState({ first_name: e.target.value })}
                         />
                         <TextField
                             className="last-name"
                             placeholder="Last Name"
-                            className={TextField}
                             margin="normal"
+                            InputLabelProps={{
+                                shrink: true
+                            }}
                             onChange={(e) => this.setState({ last_name: e.target.value })}
                         />
                         <TextField

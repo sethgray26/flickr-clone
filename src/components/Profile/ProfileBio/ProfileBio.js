@@ -58,7 +58,16 @@ export default class ProfileBio extends Component {
 
         return (
             <div id='profile-bio'>
-                <form>
+                <form className='bio-holder'>
+                    <div className='edit-bio-button'>
+                        <Fab
+                            style={shown}
+                            color="secondary"
+                            aria-label="Edit"
+                            onClick={() => this.toggleShown()}
+                        > <EditIcon />
+                        </Fab>
+                    </div>
                     <h4 className='bio-display-text' style={shown}>
                         {this.state.bio}
                     </h4>
@@ -71,16 +80,6 @@ export default class ProfileBio extends Component {
                     >
                     </textarea>
 
-                    <div className='edit-bio-button'>
-                        <Fab
-                            style={shown}
-                            color="secondary"
-                            aria-label="Edit"
-                            onClick={() => this.toggleShown()}
-                        > <EditIcon />
-                        </Fab>
-                    </div>
-
                     <div className='bio-save-button'>
                         <Button
                             style={hidden}
@@ -88,6 +87,7 @@ export default class ProfileBio extends Component {
                             color="primary"
                             onClick={() => this.onClickStuffs()}>Save Bio</Button>
                     </div>
+
 
                 </form>
 

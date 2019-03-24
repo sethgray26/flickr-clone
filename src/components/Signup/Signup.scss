@@ -36,7 +36,24 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     padding-bottom: 2em;
+    .first-name {
+        width: 42.5%;
+        padding-left: 5%;
+    }
+    .last-name {
+        width: 42.5%;
+        padding-right: 5%
+    }
+    .email-address {
+        width: 90%;
+        padding-left: 5%;
+    }
+    .password {
+        width: 90%;
+        padding-left: 5%;
+    }
 }
 
 .below-form {

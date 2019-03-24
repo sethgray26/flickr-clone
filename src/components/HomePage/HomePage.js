@@ -23,7 +23,7 @@ export default class PrimarySearchAppBar extends Component {
     this.getUserInfo()
   }
 
-  
+
 
   getUserImages = () => {
     axios.get(`/api/userPictures`).then(res => {
@@ -53,22 +53,18 @@ export default class PrimarySearchAppBar extends Component {
     return (
       <div className='homepage-backdrop' >
         < Navbar />
-        {/* <div className='homepage-subnav'>
-          <div className='homepage-subnav-content'>
+        <div className='sub-nav'>
+          <div className='sub-nav-content'>
             <Tabs
-              onChange={this.handleChange}
               indicatorColor="primary"
               textColor="primary"
               variant="fullWidth"
-              style={{ marginLeft: 60 }}
-              value={0}
             >
-              <Tab id='tabs-bottombar' label='All Activity' href='/#/Explore' />
-              <Tab id='tabs-bottombar' label='People' href='/#/People' />
-              <Tab id='tabs-bottombar' label='Groups' href='/#/People' />
+              <Tab id='hover-blueBar' label='All Activity' href='/#/Explore' />
+              <Tab id='hover-blueBar' label='Profile' href='/#/Profile' />
             </Tabs>
           </div>
-        </div> */}
+        </div>
 
         <div className='homepage-card-holder'>
           {displayUserImages}

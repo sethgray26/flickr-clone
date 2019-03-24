@@ -1,36 +1,34 @@
-.profile-IMAGES{
+@import '../../../Assets/Variables';
+.profile-thumbnails-img {
     display: flex;
-    flex-wrap: wrap;
-    width: 370px;
-
+    margin: .3em;
+    height: 15.9375em;
+    border-radius: 2.5%;
+    border: 2px solid $flickr-black;
 }
 
-.profile-thumbnails{
-    display: flex;
-    flex-wrap: wrap;
-    overflow: auto; 
-    overflow-y: hidden;
-    margin: 0;
-}
-
-.profile-thumbnails-img{
-    margin: 2px;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    display: flex;
-    width: 350px;
-    height: 255px;
-    // border: 2px 
-}
-.profile-modal-img-size{
+.modal-pop-holder {
     display: flex;
     justify-content: center;
-    width: 350px;
-    height: 255px;
-    margin: 15vh auto
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 50em;
+    height: 55em;
+    margin: 3em auto;
 }
 
-.modalDeleteButton{
-    max-width: 50px;
-    max-height: 50px;
+.modal-pop-img {
+    width: 100%;
+    object-fit: contain;
+    margin-bottom: 1em;
+    margin-top: 1em;
+}
+
+.close-modal-btn {
+    height: 3.125em;
+}
+
+.modal-delete-btn {
+    height: 3.125em;
 }

@@ -1,53 +1,60 @@
+@import '../../Assets/Variables';
 $pink: pink;
-$subNavColor: #fff;
-$tabHoverColor: #00a5ff;
-
-.profile-page{
-    min-height: 100vh;
-    width: 100%;
-    background-color: $pink;
-}
-.profile-back-img{
-    min-height: 250px;
-    min-width: 100%;
-    background-image: url(http://livinglocal.triip.me/wp-content/uploads/2016/02/Osaka-Castle-Pictures-Wallpaper1.jpg);
-    background-position: center;
-    background-size: cover;
-}
-.profile-mini-nav{
-    height: 50px;
-    width: 100%;
-    background-color: $subNavColor;
-    position: relative;
-    overflow: visible;
-    box-shadow: inset 0 -2px transparent;
-    border-bottom: 1px solid hsla(0,0%,54%,.3);
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.profile-mini-nav-content{
+#profile-page {
     display: flex;
-    justify-content: space-between;
-    min-width: 800px;
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 130px;
-    padding-right: 130px;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    background-color: $pink;
+    .profile-back-img {
+        min-height: 15.625em;
+        min-width: 100vw;
+        background-image: url(http://livinglocal.triip.me/wp-content/uploads/2016/02/Osaka-Castle-Pictures-Wallpaper1.jpg);
+        background-position: center;
+        background-size: cover;
+    }
 }
 
-#profileTabs-bottombar:hover{
-    border-bottom: 3px solid $tabHoverColor;
+.sub-nav {
+    height: 3.125em;
+    background-color: $flickr-white;
 }
 
-.profile-about-display{
-    margin-top: 2vh;
-    width: 80vw;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
+.sub-nav-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    #hover-blueBar {
+        font-size: .9em;
+    }
+    #hover-blueBar:hover {
+        border-bottom: 2px solid $accent-blue;
+    }
 }
 
+.profile-about-display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 3vh;
+    background-color: $flickr-white;
+}
 
+.profile-bio {
+    display: flex;
+    flex-direction: column;
+    width: 91%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}

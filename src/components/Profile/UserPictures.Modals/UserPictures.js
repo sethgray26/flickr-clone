@@ -39,7 +39,7 @@ export default class UserPictures extends Component {
         })
 
         return (
-            <div className='profile-img-display'>
+            <div className='profile-img-holder'>
                 {displayUserImages}
             </div>
         )
