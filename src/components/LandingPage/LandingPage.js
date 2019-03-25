@@ -40,6 +40,7 @@ class LandingPage extends Component {
                             </div>
                         </div>
 
+
                         <div className='landing-nav-mid'>
                             <div className='landing-search'>
                                 <form className='landing-search-form'>
@@ -67,6 +68,9 @@ class LandingPage extends Component {
                     </div>
 
 
+                    <div className='login-default'>
+                        <h3>Website is currently in dev mode. To quickly access the website without creating account use username: 's' and password: 's' to login!</h3>
+                    </div>
                     <div className='landing-center-container'>
                         <div className='landing-text'>
                             <h1 className='top-text'> Find your inspiration.</h1>

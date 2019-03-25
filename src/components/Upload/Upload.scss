@@ -1,8 +1,10 @@
 @import '../../Assets/Variables';
+
 .upload-page {
     height: 100vh;
     width: 100%;
     background-color: $flickr-black;
+
     .semi-circle {
         height: 100%;
         width: 100%;
@@ -25,6 +27,7 @@
     align-content: center;
     align-items: center;
     width: 100%;
+
 }
 
 .info-left {
@@ -32,10 +35,33 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    .upload-picture-name {
+        box-shadow: inset 0 0 0 1px $flickr-gray;
+        width: 100%;
+        border: none;
+        resize: none;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        border-radius: 5px;
+        margin-bottom: 1em;
+    }
+
+    .upload-picture-descript {
+        box-shadow: inset 0 0 0 1px $flickr-gray;
+        width: 100%;
+        border: none;
+        resize: none;
+        border-radius: 5px;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
 }
 
 .uploaded-img {
     display: flex;
+
     img {
         display: block;
         width: 500px;

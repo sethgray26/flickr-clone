@@ -72,6 +72,7 @@ class Upload extends Component {
 
 
                 <textarea
+                  placeholder='Picture Name'
                   className="upload-picture-name"
                   label="Picture Name"
                   margin="normal"
@@ -81,6 +82,7 @@ class Upload extends Component {
                 />
 
                 <textarea
+                  placeholder='Picture Description'
                   className="upload-picture-descript"
                   label="Picture Description"
                   margin="normal"
