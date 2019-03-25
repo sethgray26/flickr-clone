@@ -1,8 +1,21 @@
-.cardsDisplay{
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, -50px -50px 0px -30px rgba(0,0,0,0.18); 
-box-shadow: 0px 10px 13px -7px #000000, -50px -50px 0px -30px rgba(0,0,0,0.18);
+.home-card {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    padding: .3em;
+    height: 25em;
+    width: 20em;
 }
 
-.MuiCardContent-root-149{
-    padding: 0;
+.card-header {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
 }

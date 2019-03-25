@@ -13,29 +13,30 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import devmtnLogo from '../../../photos/devmtnLogo.png';
+import './HomePageCards.scss'
 
-const styles = theme => ({
-    card: {
-        maxWidth: 400,
-        marginLeft: 10,
-        marginTop: 20,
-        margin: 'auto'
-    },
-    media: {
-        height: 0,
-        // paddingTop: '56.25%', // 16:9
-    },
-    actions: {
-        display: 'flex',
-    },
-    expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-            duration: theme.transitions.duration.shortest,
-        }),
-    },
-});
+// const styles = theme => ({
+//     card: {
+//         maxWidth: 400,
+//         marginLeft: 10,
+//         marginTop: 20,
+//         margin: 'auto'
+//     },
+//     media: {
+//         height: 0,
+//         // paddingTop: '56.25%', // 16:9
+//     },
+//     actions: {
+//         display: 'flex',
+//     },
+//     expand: {
+//         transform: 'rotate(0deg)',
+//         marginLeft: 'auto',
+//         transition: theme.transitions.create('transform', {
+//             duration: theme.transitions.duration.shortest,
+//         }),
+//     },
+// });
 
 class HomePageCards extends Component {
     constructor(props) {
@@ -74,40 +75,26 @@ class HomePageCards extends Component {
         const { image } = this.props;
         const { picture_pic, picture_description, picture_name } = image;
         return (
-            <Card className={classes.card}
+            <Card className='home-card'
             >
                 <CardHeader
+                    title={picture_name}
                     avatar={
-                        <Avatar aria-label="Recipe" className={classes.avatar} src={devmtnLogo}>
+                        <Avatar aria-label="Recipe" className='avatar-icon' src={devmtnLogo}>
                         </Avatar>
                     }
-                    action={
-                        <IconButton>
-                            <MoreVertIcon />
-                        </IconButton>
-                    }
-                    title={picture_name}
-                    subheader={
-                        <p>
-                            {this.state.userInfo.first_name} {this.state.userInfo.last_name}
-                        </p>
-                    }
+
+                    className='card-header'
+                    
                 />
                 <img className="profile-thumbnails-img" onClick={() => this.handleOpen('open')} src={picture_pic} alt=''></img>
 
-                <Typography component="p" style={{ marginLeft: 50, maxWidth: 200 }}>
+                <Typography
+                className='card-footer'
+                component="p"
+                >
                     {picture_description}
                 </Typography>
-
-                <CardActions className={classes.actions} disableActionSpacing>
-                    <IconButton aria-label="Add to favorites">
-                        <FavoriteIcon />
-                    </IconButton>
-
-                    <IconButton aria-label="Share">
-                        <ShareIcon />
-                    </IconButton>
-                </CardActions>
 
                 <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
                 </Collapse>
@@ -120,4 +107,5 @@ HomePageCards.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(HomePageCards);
+export default (HomePageCards);
+// withStyles(styles)

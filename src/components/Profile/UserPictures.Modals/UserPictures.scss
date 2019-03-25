@@ -1,10 +1,7 @@
-.profile-img-display{
+.profile-img-holder {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-    align-items: center; 
-    padding-left: 40px;
-    padding-right: 30px;
-    margin-bottom: 20px
+    align-items: center;
 }

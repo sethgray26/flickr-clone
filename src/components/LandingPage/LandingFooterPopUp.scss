@@ -1,0 +1,32 @@
+@import '../../Assets/Variables';
+.footerPopUp-Container {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 55vw;
+    bottom: 0;
+    border-radius: 1vh;
+    animation: LandingFooterPopUp .5s forwards;
+}
+
+@keyframes LandingFooterPopUp {
+    from {
+        bottom: -3em;
+        opacity: 0;
+    }
+    to {
+        bottom: 0;
+        background-color: rgba($flickr-black, .8);
+    }
+}
+
+.footer-pop-up {
+    position: absolute;
+    color: $accent-blue;
+    width: 100%;
+    z-index: auto;
+}

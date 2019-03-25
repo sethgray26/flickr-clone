@@ -1,0 +1,171 @@
+@import '../../Assets/Variables';
+#landing-bg-img {
+    background-image: url("https://s.yimg.com/ap/build/images/sohp/2018-top-25/wintertimehappiness_small.jpg");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#dim-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: rgba($flickr-black, .25);
+}
+
+.landing-navBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 4em;
+    width: 100%;
+    background: rgba($flickr-black, .5);
+}
+
+.landing-nav-left {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    padding-left: 1em;
+    width: 8%;
+    .logo {
+        img {
+            width: 5em;
+        }
+    }
+}
+
+.landing-nav-mid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 78%;
+    .landing-search {
+        padding-left: 2em;
+        padding-right: 6em;
+        width: 100%;
+        form {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background-color: rgba($color: white, $alpha: .6);
+            border-radius: 1vh;
+        }
+        .searchIcon {
+            height: 1.2em;
+            width: 3%;
+        }
+        .inputBase {
+            width: 97%;
+        }
+    }
+}
+
+.landing-nav-right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 14%;
+    .landing-nav-sigin {
+        .nav-signin {
+            color: $flickr-white;
+        }
+    }
+    .landing-nav-signup {
+        width: 6em;
+        .nav-signup {
+            height: 2.4em;
+            width: 100%;
+            font-weight: bold;
+            background-color: $flickr-white;
+        }
+    }
+}
+
+.landing-center-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    margin: auto;
+    .landing-text {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        color: $flickr-white;
+        .top-text {
+            margin: 0;
+            font-size: 3.3em;
+        }
+        .mid-text {
+            margin-bottom: 0;
+            font-size: 1.5em;
+        }
+        .bot-text {
+            margin-top: 0;
+            margin-bottom: 4vh;
+            font-size: 1.5em;
+        }
+    }
+    .center-btn {
+        height: 7vh;
+        width: 10vw;
+        .center-signup {
+            height: 100%;
+            width: 100%;
+            font-size: 1.5em;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 600;
+        }
+    }
+}
+
+.landing-footer-container {
+    background-color: $flickr-black;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+    align-content: stretch;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 55%;
+    color: $flickr-gray;
+    margin: auto;
+    p:hover {
+        color: $hover-gray;
+        transition: .2s;
+    }
+    p {
+        cursor: pointer;
+    }
+}
+
+.login-default{
+    background-color: rgba($flickr-black, .5);
+    color: $flickr-white; 
+    margin: 0;
+    padding: 0;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import './NavbarDrops.css'
+import './NavbarDrops.scss'
 
 export default class NavbarDrops extends Component {
     constructor(props) {
@@ -13,10 +13,16 @@ export default class NavbarDrops extends Component {
 
     render() {
         return (
-            <div>
-                <div className="you-dropdown" style={{marginLeft: -80}}>
+            <div className='nav-drop-holder'>
 
-                <Link to='/Profile'> <button className="you-drop-btn"> You </button> </Link>
+
+
+                <div className="you-dropdown">
+                    <Link to='/profile'>
+                        <button className='explore-drop-btn'>
+                            You
+                        </button>
+                    </Link>
                     <div className="you-drop-content">
                         <Link to='/Profile'> About </Link>
                         <Link to='/Profile'> Photostream </Link>
@@ -33,7 +39,11 @@ export default class NavbarDrops extends Component {
                 </div>
 
                 <div className='explore-dropdown'>
-                    <Link to='/Explore'>  <button className='explore-drop-btn'> Explore </button> </Link>
+                    <Link to='/Explore'>
+                        <button className='explore-drop-btn'>
+                            Explore
+                        </button>
+                    </Link>
                     <div className='explore-drop-content'>
                         <Link to='/Explore'> Recent Photos </Link>
                         <Link to='/Explore'> Trending </Link>

@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import Modal from '@material-ui/core/Modal';
+import Button from '@material-ui/core/Button'
 import DeleteIcon from '@material-ui/icons/Delete'
-import IconButton from '@material-ui/core/IconButton';
-import Fab from '@material-ui/core/Fab';
 import './PictureModals.scss'
-// import axios from 'axios
 
 
 export default class PictureModals extends Component {
@@ -30,7 +28,9 @@ export default class PictureModals extends Component {
         return (
             <>
                 <div className='profile-thumbnails'>
-                    <img className="profile-thumbnails-img" onClick={() => this.handleOpen('open')} src={picture_pic} alt=''></img>
+
+                    <img className="profile-thumbnails-img" onClick={() => this.handleOpen('open')} src={picture_pic} alt=''>
+                    </img>
                 </div>
 
                 <Modal
@@ -38,15 +38,29 @@ export default class PictureModals extends Component {
                     onClose={this.handleClose}
                     disableAutoFocus={true}
                 >
-                    <div className='profile-modal-img-size'>
-                        <img className="media-gallery-main-img" src={picture_pic} alt='' />
-                        <Fab
+                    <div className='modal-pop-holder'>
+                        <Button
+                            className='close-modal-btn'
+                            variant='contained'
                             color='primary'
-                            style={{ marginLeft: -30 }}>
-                            <IconButton color='secondary' className='modalDeleteButton' onClick={() => this.props.deleteUserPicture(picture_id)} >
-                                <DeleteIcon />
-                            </IconButton>
-                        </Fab>
+                            onClick={() => { this.handleClose('close') }}
+                            placeholder='X'
+                        >
+                            Close
+                        </Button>
+
+
+                        <img className="modal-pop-img" src={picture_pic} alt='' />
+                        <Button
+                            className='modal-delete-btn'
+                            variant="contained"
+                            color="secondary"
+                            onClick={() => this.props.deleteUserPicture(picture_id)}>
+                            <DeleteIcon />
+                            Delete
+                              </Button>
+
+
                     </div>
                 </Modal>
             </>

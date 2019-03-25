@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import './Upload.css';
+import './Upload.scss';
 import axios from 'axios';
 import { v4 as randomString } from 'uuid';
+import TextField from '@material-ui/core/TextField';
 import Dropzone from 'react-dropzone';
 import { GridLoader } from 'react-spinners';
 import Navbar from '../../components/Navbar/Navbar'
@@ -21,7 +22,6 @@ class Upload extends Component {
     this.setState({ isUploading: true });
     // We are creating a file name that consists of a random string, and the name of the file that was just uploaded with the spaces removed and hyphens inserted instead. This is done using the .replace function with a specific regular expression. This will ensure that each file uploaded has a unique name which will prevent files from overwriting other files due to duplicate names.
     const fileName = `${randomString()}-${file.name.replace(/\s/g, '-')}`;
-
     // We will now send a request to our server to get a "signed url" from Amazon. We are essentially letting AWS know that we are going to upload a file soon. We are only sending the file-name and file-type as strings. We are not sending the file itself at this point.
     axios.get('/api/upload', {
       params: { 'file-name': fileName, 'file-type': file.type, },
@@ -58,45 +58,61 @@ class Upload extends Component {
   render() {
     const { url, isUploading } = this.state;
     return (
-      <div>
+      <div className='upload-page'>
+        <div className='semi-circle'>
+          <div className='upload-page-holder'>
+            <Navbar />
 
-        <Navbar />
-        <div className="Upload">
-          <h1>Upload</h1>
-          <h1>{url}</h1>
-          <img src={url} alt="" width="450px" />
-          <p> Picture Name: </p>
-          <input onChange={(e) => { this.handleName(e.target.value) }} />
-          <p> Picture Description </p>
-          <input onChange={(e) => { this.handleDescript(e.target.value) }} />
-          <Dropzone
-            onDropAccepted={this.onDrop}
-            style={{
-              position: 'relative',
-              width: 200,
-              height: 200,
-              borderWidth: 7,
-              marginTop: 100,
-              borderColor: 'rgb(102, 102, 102)',
-              borderStyle: 'dashed',
-              borderRadius: 5,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontSize: 28,
-            }}
-            accept="image/*"
-            multiple={false}
-          >
-            {() => {
-              return (
-                <div>
-                  {isUploading ? <GridLoader /> : <p>Drop File or Click Here</p>}
-                </div>
-              )
-            }}
-          </Dropzone>
+            <div className='upload-header'>
+              <h1>Upload Your Masterpiece!</h1>
+            </div>
 
+            <div className="upload-photo-info">
+              <div className='info-left'>
+
+
+                <textarea
+                  placeholder='Picture Name'
+                  className="upload-picture-name"
+                  label="Picture Name"
+                  margin="normal"
+                  variant="outlined"
+                  maxLength='50'
+                  onChange={(e) => { this.handleName(e.target.value) }}
+                />
+
+                <textarea
+                  placeholder='Picture Description'
+                  className="upload-picture-descript"
+                  label="Picture Description"
+                  margin="normal"
+                  variant="outlined"
+                  maxLength='50'
+                  onChange={(e) => { this.handleDescript(e.target.value) }}
+                />
+
+                <Dropzone
+                  className='upload-dropzone'
+                  onDropAccepted={this.onDrop}
+                  accept="image/*"
+                  multiple={false}
+                >
+                  {() => {
+                    return (
+                      <div>
+                        {isUploading ? <GridLoader /> : <p>Drop File or Click Here</p>}
+                      </div>
+                    )
+                  }}
+                </Dropzone>
+              </div>
+              <div className='uploaded-img'>
+                <img src={url} alt="" />
+              </div>
+            </div>
+
+
+          </div>
         </div>
       </div>
     );
