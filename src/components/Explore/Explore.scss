@@ -8,7 +8,6 @@ $subNavColor: #fff;
 }
 
 .title-explore {
-    // position: relative;
     font-size: 24px;
     line-height: 30px;
 }
@@ -48,24 +47,23 @@ $subNavColor: #fff;
     border-radius: 3%;
 }
 
-.modal-pop-holder {
-    // display: flex;
-    // justify-content: center;
-    // flex-direction: column;
-    // align-content: center;
-    // align-items: center;
-    // width: 50em;
-    // height: 55em;
-    // margin: 3em auto;
+.explore-modal-pop-holder {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    width: 50em;
+    margin: 1em auto;
 }
 
-.modal-pop-img {
+.explore-modal-pop-img {
     width: 100%;
-    object-fit: contain;
+    max-height: 90vh;
+    object-fit: cover;
     margin-bottom: 1em;
     margin-top: 1em;
-    top: 0;
-    border-radius: 3%
+    border-radius: 3%;
 }
 
 .close-modal-btn {
