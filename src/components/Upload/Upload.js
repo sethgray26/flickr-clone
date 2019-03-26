@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './Upload.scss';
 import axios from 'axios';
 import { v4 as randomString } from 'uuid';
-import TextField from '@material-ui/core/TextField';
 import Dropzone from 'react-dropzone';
 import { GridLoader } from 'react-spinners';
 import Navbar from '../../components/Navbar/Navbar'
@@ -12,7 +11,6 @@ class Upload extends Component {
     super();
     this.state = {
       isUploading: false,
-      // url: 'http://via.placeholder.com/450x450',
       picture_name: '',
       picture_description: ''
     };
