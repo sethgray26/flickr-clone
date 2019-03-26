@@ -103,7 +103,7 @@ export default class Explore extends Component {
                             onClose={this.handleClose}
                             disableAutoFocus={true}
                         >
-                            <div className='modal-pop-holder'>
+                            <div className='explore-modal-pop-holder'>
                                 <Button
                                     className='close-modal-btn'
                                     variant='contained'
@@ -113,7 +113,7 @@ export default class Explore extends Component {
                                 >
                                     Close
                         </Button>
-                                <img className="modal-pop-img" src={selectedImage} alt='' />
+                                <img className="explore-modal-pop-img" src={selectedImage} alt='' />
                             </div>
                         </Modal>
                     </div>
