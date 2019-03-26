@@ -34,16 +34,13 @@ export default class PrimarySearchAppBar extends Component {
   getUserInfo = () => {
     axios.get(`/api/profile`).then(res => {
       this.setState({ userInfo: res.data })
-      console.log(res.data)
     })
   }
 
 
 
   render() {
-    console.log(this.state.userInfo)
     let displayUserImages = this.state.userPictures.map((image, index) => {
-      console.log(image)
       return (
         <HomePageCards image={image} key={index} />
       )
