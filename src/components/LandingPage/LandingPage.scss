@@ -1,171 +1,140 @@
-@import '../../Assets/Variables';
-#landing-bg-img {
-    background-image: url("https://s.yimg.com/ap/build/images/sohp/2018-top-25/wintertimehappiness_small.jpg");
+@import "../../Assets/Variables";
+
+#landingPage-container {
+    background-image: url("../../Assets/images/Flickr_forest.jpeg");
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
-}
-
-#dim-overlay {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
     position: relative;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    background-color: rgba($flickr-black, .25);
+    h1 {
+        margin: 0;
+    }
+    font-family: Arial, Helvetica, sans-serif;
+
+    #dim-overlay {
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        background-color: rgba($flickr-black, 0.25);
+    }
 }
 
-.landing-navBar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 4em;
+.landing-nav {
+    height: 8vh;
     width: 100%;
-    background: rgba($flickr-black, .5);
-}
+    // background-color: white;
+    background: rgba($flickr-black, 0.25);
+    box-shadow: 0px 3px 6px #00000024;
+    z-index: 1;
 
-.landing-nav-left {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    height: 100%;
-    padding-left: 1em;
-    width: 8%;
-    .logo {
-        img {
-            width: 5em;
-        }
+    .site-logo {
+        padding: 2em;
     }
-}
 
-.landing-nav-mid {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 78%;
-    .landing-search {
-        padding-left: 2em;
-        padding-right: 6em;
-        width: 100%;
-        form {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            background-color: rgba($color: white, $alpha: .6);
-            border-radius: 1vh;
-        }
-        .searchIcon {
-            height: 1.2em;
-            width: 3%;
-        }
-        .inputBase {
-            width: 97%;
-        }
-    }
-}
-
-.landing-nav-right {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 14%;
-    .landing-nav-sigin {
-        .nav-signin {
-            color: $flickr-white;
-        }
-    }
-    .landing-nav-signup {
-        width: 6em;
-        .nav-signup {
-            height: 2.4em;
-            width: 100%;
-            font-weight: bold;
-            background-color: $flickr-white;
-        }
-    }
-}
-
-.landing-center-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: center;
-    align-items: center;
-    margin: auto;
-    .landing-text {
+    .search-container {
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
+        flex: 1;
+        justify-content: flex-end;
         align-items: center;
-        color: $flickr-white;
-        .top-text {
-            margin: 0;
-            font-size: 3.3em;
+
+        .search-icon {
+            color: white;
+            font-size: 2em;
         }
-        .mid-text {
-            margin-bottom: 0;
-            font-size: 1.5em;
-        }
-        .bot-text {
-            margin-top: 0;
-            margin-bottom: 4vh;
-            font-size: 1.5em;
+
+        .search-bar {
+            background-color: white;
+            flex: 1;
+            padding: 0 0.5em;
+            border-radius: 5px;
         }
     }
-    .center-btn {
-        height: 7vh;
-        width: 10vw;
-        .center-signup {
-            height: 100%;
-            width: 100%;
-            font-size: 1.5em;
-            font-family: Arial, Helvetica, sans-serif;
-            font-weight: 600;
+
+    .nav-actions {
+        padding-right: 2em;
+        .nav-button {
+            box-shadow: none;
+            &:first-child {
+                color: white;
+                margin: 0 1.5em;
+            }
+        }
+        .filled {
+            background-color: white;
         }
     }
 }
 
-.landing-footer-container {
-    background-color: $flickr-black;
-    bottom: 0;
+.landing-body {
+    height: 85vh;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-end;
-    align-content: stretch;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+
+    h1 {
+        font-size: 56px;
+        line-height: 56px;
+        font-weight: 600;
+    }
+    h3 {
+        margin-bottom: 50px;
+        font-size: 26px;
+        line-height: 32px;
+        font-weight: 600;
+    }
+
+    .start-button {
+        height: 64px;
+        line-height: 64px;
+        font-size: 24px;
+        font-weight: 800;
+        min-width: 200px;
+        padding: 0 20px;
+        color: black;
+        background-color: white;
+        border-radius: 3px;
+    }
 }
 
-.footer-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 55%;
-    color: $flickr-gray;
-    margin: auto;
-    p:hover {
-        color: $hover-gray;
-        transition: .2s;
+.landing-footer {
+    height: 7vh;
+    background-color: black;
+    width: 100%;
+    div:first-child {
+        height: 100%;
+        max-width: 100%;
+        padding: 0 2em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
     p {
-        cursor: pointer;
+        margin: 0;
+        color: white;
+        font-size: 14px;
     }
 }
 
-.login-default{
-    background-color: rgba($flickr-black, .5);
-    color: $flickr-white; 
-    margin: 0;
-    padding: 0;
+.flex-column-center-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row-start-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.pointer {
+    cursor: pointer;
 }

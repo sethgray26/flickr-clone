@@ -5,7 +5,6 @@ import InputBase from '@material-ui/core/InputBase'
 import Button from '@material-ui/core/Button'
 import flickrLogo from '../../photos/flickrLogo.svg'
 
-import LandingFooterPopUp from './LandingFooterPopup'
 import './LandingPage.scss'
 import './LandingFooterPopUp.scss'
 
@@ -14,95 +13,59 @@ class LandingPage extends Component {
     constructor() {
         super()
         this.state = {
-            showPopup: false
+            searchBar: false,
         }
     }
 
-    togglePopup = () => {
-        this.setState({
-            showPopup: !this.state.showPopup
-        });
+
+    toggleSearchBar = () => {
+        this.setState({ searchBar: !this.state.searchBar })
     }
 
     render() {
-
+        const footerStrings = ['About', "Jobs", "Blog", "Developers", "Guidelines", "Privacy", "Terms", "Cookies", "English"]
         return (
+            <div id="landingPage-container">
+                <div id="dim-overlay" className="flex-column-center-center">
 
-            <div id='landing-bg-img'>
-                <div id='dim-overlay'>
+                    <section className="landing-nav flex-row-start-center">
+                        <span className="site-logo">
+                            <img src={flickrLogo} alt='' />
+                        </span>
 
+                        <span className="search-container">
+                            <SearchIcon className='search-icon' onClick={() => this.toggleSearchBar()} />
 
-                    <div className='landing-navBar'>
+                            {this.state.searchBar ?
+                                <InputBase className='search-bar' placeholder='Find your inspiration' /> 
+                                : null
+                            }
+                        </span>
 
-                        <div className='landing-nav-left'>
-                            <div className='logo'>
-                                <img src={flickrLogo} alt='' />
-                            </div>
+                        <span className="nav-actions">
+                            <Button className="nav-button" variant="text"  component={Link} to='/Signin'>
+                                Log In
+                            </Button>
+
+                            <Button className='nav-button filled' variant='contained' component={Link} to='/Signup'>
+                                Sign up
+                            </Button>
+                        </span>
+                    </section>
+
+                    <section className="landing-body flex-column-center-center">
+                        <h1> Find your inspiration </h1>
+                        <h3> Join the Flick community, home to tens of billions of photos and 2 million groups. </h3>
+                        <Link className="start-button pointer" to='/Signup'> Start for free </Link>
+                    </section>
+
+                    <section className="landing-footer">
+                        <div>
+                            {footerStrings.map((ele, ind) => (
+                                <p className="pointer" key={ind}> {ele} </p>
+                            ))}
                         </div>
-
-
-                        <div className='landing-nav-mid'>
-                            <div className='landing-search'>
-                                <form className='landing-search-form'>
-                                    <SearchIcon className='searchIcon' />
-                                    <InputBase
-                                        className='inputBase'
-                                        placeholder='This Search Feature Is Currently Being Redesigned , Functionality Is Coming In A Future Update'
-                                        style={{ color: 'black' }}
-                                    />
-                                </form>
-                            </div>
-                        </div>
-
-                        <div className='landing-nav-right'>
-                            <div className='landing-nav-sigin'>
-                                <Link className='nav-signin' to='Signin'> <p> Log In </p> </Link>
-                            </div>
-
-                            <div className='landing-nav-signup'>
-                                <Button className='nav-signup' variant='contained' component={Link} to='/Signup'
-                                > Sign up </Button>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <div className='login-default'>
-                        <h3>Website is currently in dev mode. To quickly access the website without creating account use username: 's' and password: 's' to login!</h3>
-                    </div>
-                    <div className='landing-center-container'>
-                        <div className='landing-text'>
-                            <h1 className='top-text'> Find your inspiration.</h1>
-                            <h3 className='mid-text'> Join the Flickr community, home to tens of billions of </h3>
-                            <h3 className='bot-text'>photos and 2 million groups </h3>
-                        </div>
-
-                        <div className='center-btn'>
-                            <Button className='center-signup' variant='contained' component={Link} to='/Signup'
-                            > Sign Up</Button>
-                        </div>
-                    </div>
-
-
-                    <div className='landing-footer-container'>
-
-                        <div className='footer-nav'>
-                            <div className='footer-pop-up'>
-                                {this.state.showPopup ?
-                                    <LandingFooterPopUp closePopUp={(this.togglePopup)} /> : null}
-                            </div>
-                            <p onClick={() => this.togglePopup()}> About </p>
-                            <p onClick={() => this.togglePopup()}> Jobs </p>
-                            <p onClick={() => this.togglePopup()}> Blog </p>
-                            <p onClick={() => this.togglePopup()}> Developers </p>
-                            <p onClick={() => this.togglePopup()}> Guidelines </p>
-                            <p onClick={() => this.togglePopup()}> Privacy </p>
-                            <p onClick={() => this.togglePopup()}> Terms </p>
-                            <p onClick={() => this.togglePopup()}> Help forum </p>
-                            <p onClick={() => this.togglePopup()}> English </p>
-                        </div>
-                    </div>
+                    </section>
 
                 </div>
             </div>

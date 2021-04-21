@@ -1,86 +1,144 @@
-@import '../../Assets/Variables';
-.Signup-background {
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    background-color: rgb(255, 253, 253);
+@import "../../Assets/Variables";
+
+.signup-container {
+    background-image: url("../../Assets/images/flickr_mountainrange.jpeg");
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
     height: 100vh;
+    h1 {
+        margin: 0;
+    }
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.registration-box {
+.register-card {
+    width: 22rem;
+    padding: 24px;
+    background-color: white;
+    border-radius: 3px;
+
+    .form-field {
+        margin-bottom: 0.5em;
+    }
+}
+
+.card-submit {
+    width: 100%;
+    margin-top: 2em;
+    display: flex;
+    .submit-button {
+        width: 100%;
+        text-align: center;
+        padding: 10px 24px;
+        background-color: #0278c5;
+        color: white;
+        border-radius: 3px;
+        font-weight: 600;
+    }
+}
+
+.flex-column-center-center {
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
-    align-content: center;
-    align-content: center;
-    height: 32.375em;
-    width: 25em;
-    padding: .3em;
-    background-color: $flickr-white;
-    box-shadow: 0px 1.5px 10px 1px rgba(0, 0, 0, 0.19);
-    .signup-top {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        h3 {
-            font-size: 1.4em;
-            font-weight: 200;
-            margin-bottom: 0;
-        }
-    }
-}
-
-.signup-form {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding-bottom: 2em;
-    .first-name {
-        width: 42.5%;
-        padding-left: 5%;
-    }
-    .last-name {
-        width: 42.5%;
-        padding-right: 5%
-    }
-    .email-address {
-        width: 90%;
-        padding-left: 5%;
-    }
-    .password {
-        width: 90%;
-        padding-left: 5%;
-    }
 }
 
-.below-form {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    .agree-to-terms {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        .privacy-policy {
-            margin-top: 0;
-        }
-    }
-    .form-btn {
-        width: 90%;
-        .continue-btn {
-            width: 100%;
-        }
-    }
-}
+// .Signup-background {
+//     display: flex;
+//     justify-content: center;
+//     align-content: center;
+//     align-items: center;
+//     // background-image: url("../../Assets/images/flickr_mountainrange.jpeg");
+//     // background-color: rgb(255, 253, 253);
+//     height: 100vh;
+// }
 
-.already-account {
-    font-weight: 500
-}
+// .signup-background {
+//     background-image: url("../../Assets/images/flickr_mountainrange.jpeg");
+//     background-position: 50%;
+//     background-repeat: no-repeat;
+//     background-size: cover;
+//     overflow: hidden;
+//     position: relative;
+// }
 
-.link-to-signin {
-    color: blue
-}
+// .registration-box {
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: nowrap;
+//     align-content: center;
+//     align-content: center;
+//     height: 32.375em;
+//     width: 25em;
+//     padding: 0.3em;
+//     background-color: $flickr-white;
+//     box-shadow: 0px 1.5px 10px 1px rgba(0, 0, 0, 0.19);
+//     .signup-top {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         h3 {
+//             font-size: 1.4em;
+//             font-weight: 200;
+//             margin-bottom: 0;
+//         }
+//     }
+// }
+
+// .signup-form {
+//     display: flex;
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding-bottom: 2em;
+//     .first-name {
+//         width: 42.5%;
+//         padding-left: 5%;
+//     }
+//     .last-name {
+//         width: 42.5%;
+//         padding-right: 5%;
+//     }
+//     .email-address {
+//         width: 90%;
+//         padding-left: 5%;
+//     }
+//     .password {
+//         width: 90%;
+//         padding-left: 5%;
+//     }
+// }
+
+// .below-form {
+//     display: flex;
+//     flex-direction: column;
+//     flex-wrap: nowrap;
+//     align-items: center;
+//     .agree-to-terms {
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         .privacy-policy {
+//             margin-top: 0;
+//         }
+//     }
+//     .form-btn {
+//         width: 90%;
+//         .continue-btn {
+//             width: 100%;
+//         }
+//     }
+// }
+
+// .already-account {
+//     font-weight: 500;
+// }
+
+// .link-to-signin {
+//     color: blue;
+// }
